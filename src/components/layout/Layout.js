@@ -3,10 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function Layout({ children }) {
+  const style = { minHeight: "500px" };
   return (
     <div>
       <Header />
-      <div>{children}</div>
+      <div style={style}> {children}</div>
       <Footer />
     </div>
   );

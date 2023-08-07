@@ -8,6 +8,7 @@
   margin-top: 5px;
   padding: 10px;
   border-radius: 10px;
+  margin-bottom: 50px;
 }
 .header ul {
   display: flex;
@@ -22,4 +23,7 @@
   border: 2px solid var(--color-third);
   padding: 5px 10px;
   border-radius: 10px;
+}
+.signup span {
+  margin-right: 5px;
 }

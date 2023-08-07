@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  background-color: var(--color-first);
+  color: var(--color-third);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.footer .desc h3 {
+  font-weight: 400;
+}
+.footer .desc {
+  width: 80%;
+  text-align: right;
+}
