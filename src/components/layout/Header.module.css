@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  background-color: var(--color-first);
+  color: var(--color-third);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.header ul {
+  display: flex;
+  list-style: none;
+}
+.header li {
+  margin-left: 20px;
+}
+.signup {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--color-third);
+  padding: 5px 10px;
+  border-radius: 10px;
+}
