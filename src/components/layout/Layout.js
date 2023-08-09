@@ -1,15 +1,14 @@
-import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import styles from "./Layout.module.css";
 
 function Layout({ children }) {
-  const style = { minHeight: "500px" };
   return (
-    <div>
+    <>
       <Header />
-      <div style={style}> {children}</div>
+      <div className={styles.body}> {children}</div>
       <Footer />
-    </div>
+    </>
   );
 }
 

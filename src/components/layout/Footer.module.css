@@ -13,7 +13,13 @@
 .footer .desc h3 {
   font-weight: 400;
 }
+
 .footer .desc {
   width: 80%;
   text-align: right;
+  font-size: .8em;
+}
+
+.footer .menu {
+  width: 15%;
 }
