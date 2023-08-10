@@ -2,10 +2,9 @@ import Boss from "@/models/Boss";
 import { comparePassword } from "@/utils/auth";
 import connectDB from "@/utils/connectDB";
 import NextAuth from "next-auth/next";
-import Credentials from "next-auth/providers/credentials";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const nextOptions = {
+const authOptions = {
   session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
@@ -21,7 +20,7 @@ const nextOptions = {
         if (!email || !password)
           throw new Error("لطفا اطلاعات را کامل وارد کنید");
 
-        const boss = await Boss.findById({ email });
+        const boss = await Boss.findOne({ email });
         if (!boss) throw new Error("ابتدا حسال کاربری ایجاد کنید");
 
         const isValid = await comparePassword(password, boss.password);
@@ -33,5 +32,5 @@ const nextOptions = {
     }),
   ],
 };
-const handler = NextAuth(nextOptions);
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

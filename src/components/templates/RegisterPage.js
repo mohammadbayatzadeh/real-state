@@ -1,12 +1,16 @@
 "use client";
+
 import { useState } from "react";
-import styles from "./Loginpage.module.css";
-import Link from "next/link";
-import Toast from "../elements/Toast";
-import axios from "axios";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import axios from "axios";
+
+//elements
+import Toast from "../elements/Toast";
 import { ThreeDots } from "react-loader-spinner";
 
+//styles
+import styles from "./Loginpage.module.css";
 function LoginPage() {
   const router = useRouter();
 
@@ -23,6 +27,7 @@ function LoginPage() {
       [e.target.name]: e.target.value,
     });
   };
+
   const submit = async () => {
     if (form.password !== form.configPassword) {
       return Toast("پسورد ها مطابقت ندارند!", "error");
@@ -43,6 +48,7 @@ function LoginPage() {
         Toast(err.response.data.error, "error");
       });
   };
+
   return (
     <div className={styles.form}>
       <h3>فرم ثبت نام</h3>
@@ -78,7 +84,7 @@ function LoginPage() {
           visible={loading}
         />
       ) : (
-        <button onClick={submit}>ورود</button>
+        <button onClick={submit}>ثبت نام </button>
       )}
       <p>
         آیا حساب دارید؟ <Link href="/login">ورود</Link>

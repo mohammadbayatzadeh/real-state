@@ -16,7 +16,7 @@ function Header() {
         </ul>
       </div>
       <div>
-        <Link href="/signup" className={styles.signup}>
+        <Link href="/login" className={styles.signup}>
           <VscSignIn />
           <span>ورود</span>
         </Link>
