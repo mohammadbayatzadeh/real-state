@@ -1,4 +1,4 @@
 
 export default function Home() {
-  return <main>سلام</main>;
+  return <main>real state</main>;
 }

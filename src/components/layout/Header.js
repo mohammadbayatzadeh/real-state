@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 //icons
 import { VscSignIn, VscSignOut, VscSymbolProperty } from "react-icons/vsc";
+import { GiArchiveRegister } from "react-icons/gi";
 
 //styles
 import styles from "./Header.module.css";
@@ -30,6 +31,7 @@ function Header() {
         </ul>
       </div>
       <div className={styles.buttons}>
+        {status === "loading" && <p>لطفا منتظر بمانید...</p>}
         {status === "authenticated" && (
           <>
             {pathname !== "/dashboard" && (
@@ -53,7 +55,7 @@ function Header() {
             )}
             {pathname !== "/register" && (
               <Link href="/register" className={styles.button}>
-                <VscSignIn />
+                <GiArchiveRegister />
                 <span>ثبت نام</span>
               </Link>
             )}
