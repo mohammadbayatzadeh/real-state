@@ -16,10 +16,14 @@
 
 .footer .desc {
   width: 80%;
+  height: 100px;
   text-align: right;
   font-size: .8em;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .footer .menu {
+  font-size: .8em;
   width: 15%;
 }

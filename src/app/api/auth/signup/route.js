@@ -1,7 +1,11 @@
+import { NextResponse } from "next/server";
+
+//models
 import Boss from "@/models/Boss";
+
+//functions
 import { hashPassword } from "@/utils/auth";
 import connectDB from "@/utils/connectDB";
-import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {

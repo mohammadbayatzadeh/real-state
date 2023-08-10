@@ -1,7 +1,11 @@
 import Link from "next/link";
+
+//icons
 import { VscSignIn } from "react-icons/vsc";
 
+//styles
 import styles from "./Header.module.css";
+
 function Header() {
   return (
     <header className={styles.header}>

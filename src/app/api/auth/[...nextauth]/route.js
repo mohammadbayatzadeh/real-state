@@ -1,8 +1,12 @@
-import Boss from "@/models/Boss";
-import { comparePassword } from "@/utils/auth";
-import connectDB from "@/utils/connectDB";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+
+//models
+import Boss from "@/models/Boss";
+
+//functions
+import { comparePassword } from "@/utils/auth";
+import connectDB from "@/utils/connectDB";
 
 const authOptions = {
   session: { strategy: "jwt" },

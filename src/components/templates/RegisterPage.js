@@ -5,12 +5,14 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
-//elements
+//components
 import Toast from "../elements/Toast";
 import { ThreeDots } from "react-loader-spinner";
 
 //styles
 import styles from "./Loginpage.module.css";
+
+
 function LoginPage() {
   const router = useRouter();
 

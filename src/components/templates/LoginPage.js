@@ -7,7 +7,7 @@ import Link from "next/link";
 //functions
 import { signIn } from "next-auth/react";
 
-//elemets
+//components
 import Toast from "../elements/Toast";
 import { ThreeDots } from "react-loader-spinner";
 

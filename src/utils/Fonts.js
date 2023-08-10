@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+
 export const Yekan = localFont({
   src: [
     {
