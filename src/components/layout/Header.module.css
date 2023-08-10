@@ -17,13 +17,21 @@
 .header li {
   margin-left: 20px;
 }
-.signup {
+.buttons {
+  display: flex;
+}
+.button {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: 2px solid var(--color-third);
-  padding: 5px 10px;
+  color: var(--color-third);
+  font-size: 1em;
+  padding: 3px 10px;
   border-radius: 10px;
+  background: none;
+  margin-right: 7px;
 }
-.signup span {
+.button span {
   margin-right: 5px;
 }
