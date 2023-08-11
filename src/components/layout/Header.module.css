@@ -21,6 +21,17 @@
 .buttons {
   display: flex;
 }
+.buttons p {
+  animation: vibrate .5s ease infinite alternate;
+}
+@keyframes vibrate {
+  from {
+    transform: scale(.8) translateX(0px);
+  }
+  to {
+    transform: scale(1.1) translateX(10px);
+  }
+}
 .button {
   display: flex;
   align-items: center;
@@ -37,7 +48,7 @@
 .button span {
   margin-right: 5px;
 }
-@media (max-width:720px){
+@media (max-width: 720px) {
   .button span {
     display: none;
   }

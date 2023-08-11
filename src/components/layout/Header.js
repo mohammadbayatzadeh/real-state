@@ -16,7 +16,7 @@ function Header() {
   const pathname = usePathname();
 
   const signoutHandler = async () => {
-    signOut();
+    signOut({redirect:false});
   };
   return (
     <header className={styles.header}>
