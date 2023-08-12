@@ -1,9 +1,5 @@
-import React from 'react'
-
-function page() {
-  return (
-    <div>page</div>
-  )
+function Dahboard() {
+  return <div>Dahboard</div>;
 }
 
-export default page
+export default Dahboard;

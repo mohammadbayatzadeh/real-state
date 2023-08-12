@@ -1,7 +1,9 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import RegisterPage from "@/components/templates/RegisterPage";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+
+//template
+import RegisterPage from "@/components/templates/RegisterPage";
 
 async function Register() {
   const session = await getServerSession(authOptions);
