@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.container .title {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-second);
+  color: var(--color-first);
+  font-weight: 300;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.form button {
+  background: none;
+  border-radius: 10px;
+  font-weight: 400;
+  margin: 10px 0;
+  color: var(--color-first);
+  border: 2px solid var(--color-first);
+  outline: none;
+  padding: 5px;
+  cursor: pointer;
+}

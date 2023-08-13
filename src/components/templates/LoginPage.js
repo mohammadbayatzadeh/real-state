@@ -12,7 +12,7 @@ import Toast from "../elements/Toast";
 import { ThreeDots } from "react-loader-spinner";
 
 //styles
-import styles from "./Loginpage.module.css";
+import styles from "./AuthPage.module.css";
 
 function LoginPage() {
   const [form, setForm] = useState({

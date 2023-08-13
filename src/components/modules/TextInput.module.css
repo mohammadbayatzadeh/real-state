@@ -1,0 +1,18 @@
+.input input,
+.input textarea {
+  border: 1px dotted black;
+  background: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 300px;
+  margin-bottom: 20px;
+  resize: none;
+}
+.input textarea {
+  height: 100px;
+  width: 400px;
+}
+.input p {
+  margin-top: 20px;
+}

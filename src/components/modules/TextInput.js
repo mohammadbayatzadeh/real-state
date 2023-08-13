@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./TextInput.module.css";
 
 function TextInput({
   title,
@@ -12,8 +12,8 @@ function TextInput({
     setProfileData({ ...profileData, [name]: value });
   };
   return (
-    <div>
-      <p>{title}</p>
+    <div className={styles.input}>
+      <p>{title}:</p>
       {textArea ? (
         <textarea
           name={name}
