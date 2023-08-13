@@ -13,11 +13,11 @@
   margin-bottom: 15px;
 }
 
-.form button {
+.container button {
   background: none;
   border-radius: 10px;
   font-weight: 400;
-  margin: 10px 0;
+  margin: 20px 0;
   color: var(--color-first);
   border: 2px solid var(--color-first);
   outline: none;

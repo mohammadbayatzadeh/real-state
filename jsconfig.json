@@ -20,6 +20,9 @@
       "@/src/componenst/templates*": [
         "src/componenst/templates*"
       ],
+      "@/src/componenst/modules*": [
+        "src/componenst/modules*"
+      ],
       "@/src/models/*": [
         "src/models/*"
       ],

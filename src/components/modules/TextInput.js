@@ -1,3 +1,4 @@
+import { p2e } from "@/utils/functions";
 import styles from "./TextInput.module.css";
 
 function TextInput({
@@ -9,7 +10,7 @@ function TextInput({
 }) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    setProfileData({ ...profileData, [name]: value });
+    setProfileData({ ...profileData, [name]: p2e(value) });
   };
   return (
     <div className={styles.input}>

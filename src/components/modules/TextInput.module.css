@@ -1,6 +1,6 @@
 .input input,
 .input textarea {
-  border: 1px dotted black;
+  border: 2px solid var(--color-dark);
   background: none;
   outline: none;
   padding: 5px;
@@ -8,6 +8,12 @@
   width: 300px;
   margin-bottom: 20px;
   resize: none;
+  transition: 0.5s all ease;
+}
+.input input:focus,
+.input textarea:focus {
+  border: 2px solid var(--color-first);
+  outline: none;
 }
 .input textarea {
   height: 100px;
@@ -15,4 +21,9 @@
 }
 .input p {
   margin-top: 20px;
+  transition: 0.5s all ease;
+}
+.input input:focus,
+.input textarea:focus {
+  transform: translateX(-5px);
 }
