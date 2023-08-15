@@ -4,6 +4,7 @@ import TextInput from "../modules/TextInput";
 import styles from "./AddProfilePage.module.css";
 import { VscGlobe } from "react-icons/vsc";
 import RadioList from "../modules/RadioList";
+import ListInput from "../modules/ListInput";
 function AddProfilePage() {
   const [profileData, setProfileData] = useState({
     title: "",
@@ -64,6 +65,18 @@ function AddProfilePage() {
       />
       <RadioList profileData={profileData} setProfileData={setProfileData} />
 
+      <ListInput
+        type="amenities"
+        title="امکانات رفاهی"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      <ListInput
+        type="rules"
+        title="قوانین"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
       <button className={styles.button} onClick={submitHandler}>
         ثبت آگهی
       </button>

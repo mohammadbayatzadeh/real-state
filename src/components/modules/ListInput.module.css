@@ -1,0 +1,50 @@
+.container input {
+  border: 2px solid var(--color-dark);
+  background: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  resize: none;
+  transition: 0.5s all ease;
+}
+.container input:focus {
+  border: 2px solid var(--color-first);
+  outline: none;
+}
+
+.item button {
+  border: 2px solid var(--color-fourth) !important;
+  color: var(--color-fourth) !important;
+  margin: 0 !important;
+}
+.container p {
+  font-weight: 300;
+  transition: 0.5s all ease;
+}
+.container input:focus {
+  transform: translateX(-5px);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+}
+.container button svg {
+  margin-left: 3px;
+}
+
+.container button:hover {
+  animation: vibrate 0.1s ease infinite alternate;
+}
+@keyframes vibrate {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1px);
+  }
+}
