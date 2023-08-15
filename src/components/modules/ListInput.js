@@ -21,6 +21,7 @@ function ListInput({ type, title, profileData, setProfileData }) {
     list[index] = value;
     setProfileData({ ...profileData, [type]: list });
   };
+  
   return (
     <div className={styles.container}>
       <p>{title}</p>

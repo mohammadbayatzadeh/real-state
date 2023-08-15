@@ -5,6 +5,7 @@ import styles from "./AddProfilePage.module.css";
 import { VscGlobe } from "react-icons/vsc";
 import RadioList from "../modules/RadioList";
 import ListInput from "../modules/ListInput";
+import CustumDatePicker from "../elements/CustumDatePicker";
 function AddProfilePage() {
   const [profileData, setProfileData] = useState({
     title: "",
@@ -74,6 +75,10 @@ function AddProfilePage() {
       <ListInput
         type="rules"
         title="قوانین"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      <CustumDatePicker
         profileData={profileData}
         setProfileData={setProfileData}
       />

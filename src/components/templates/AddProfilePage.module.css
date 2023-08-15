@@ -23,4 +23,10 @@
   outline: none;
   padding: 5px;
   cursor: pointer;
+  transition: .5s all ease;
+}
+.container button:hover {
+  background: var(--color-first);
+  color: var(--color-light);
+  border: 2px solid var(--color-light);
 }
