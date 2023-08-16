@@ -1,3 +1,4 @@
+//styles
 import styles from "./DashboardPage.module.css";
 
 function DashboardPage({ date }) {

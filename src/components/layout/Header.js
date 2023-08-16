@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 //icons
 import { VscSignIn, VscSignOut, VscSymbolProperty } from "react-icons/vsc";
@@ -14,9 +14,11 @@ import styles from "./Header.module.css";
 function Header() {
   const { status } = useSession();
   const pathname = usePathname();
+  const router = useRouter();
 
   const signoutHandler = async () => {
-    signOut({redirect:false});
+    signOut({ redirect: false });
+    router.replace("/");
   };
   return (
     <header className={styles.header}>

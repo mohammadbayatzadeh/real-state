@@ -1,11 +1,9 @@
-import Boss from "@/models/Boss";
-import Boss from "@/models/Boss";
-import Profile from "@/models/Profile";
 import Profile from "@/models/Profile";
 import connectDB from "@/utils/connectDB";
 import { Types } from "mongoose";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import Boss from "@/models/Boss";
 
 export async function POST(req) {
   try {
@@ -20,8 +18,6 @@ export async function POST(req) {
       realState,
       contructionDate,
       category,
-      rules,
-      amenities,
     } = body;
 
     const session = await getServerSession(req);
@@ -32,14 +28,14 @@ export async function POST(req) {
       );
     }
 
-    const Boss = await Boss.findOne({ email: session.user.email });
-    console.log(Boss);
-    if (!Boss) {
+    const existingBoss = await Boss.findOne({ email: session.user.email });
+    if (!existingBoss) {
       return NextResponse.json(
         { error: "حساب کابری شما یافت نشد" },
         { error: 404 }
       );
     }
+
     if (
       !title ||
       !description ||
@@ -61,8 +57,9 @@ export async function POST(req) {
     const newProfile = await Profile.create({
       ...body,
       price: +price,
-      userId: new Types.ObjectId(Boss._id),
+      userId: new Types.ObjectId(existingBoss._id),
     });
+
     return NextResponse.json(
       { message: "آگهی جدید ثبت شد", data: newProfile },
       { status: 201 }

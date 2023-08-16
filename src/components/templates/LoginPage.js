@@ -9,7 +9,7 @@ import { signIn } from "next-auth/react";
 
 //components
 import Toast from "../elements/Toast";
-import { ThreeDots } from "react-loader-spinner";
+import Loading from "../elements/Loading";
 
 //styles
 import styles from "./AuthPage.module.css";
@@ -63,19 +63,7 @@ function LoginPage() {
         type="password"
         onChange={(e) => changeHandler(e)}
       />
-      {loading ? (
-        <ThreeDots
-          height="55"
-          width="80"
-          radius="9"
-          color="#465293"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ margin: " 0 auto" }}
-          visible={loading}
-        />
-      ) : (
-        <button onClick={submit}>ورود</button>
-      )}
+      {loading ? <Loading /> : <button onClick={submit}>ورود</button>}
       <p>
         آیا حساب ندارید؟ <Link href="/register">ثبت نام</Link>
       </p>

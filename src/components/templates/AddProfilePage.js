@@ -1,12 +1,20 @@
 "use client";
 import React, { useState } from "react";
+import axios from "axios";
+
+//compoents
 import TextInput from "../modules/TextInput";
-import styles from "./AddProfilePage.module.css";
-import { VscGlobe } from "react-icons/vsc";
 import RadioList from "../modules/RadioList";
 import ListInput from "../modules/ListInput";
 import CustumDatePicker from "../elements/CustumDatePicker";
+import Toast from "../elements/Toast";
+import Loading from "../elements/Loading";
+
+//styles
+import styles from "./AddProfilePage.module.css";
+
 function AddProfilePage() {
+  const [loading, setLoading] = useState(false);
   const [profileData, setProfileData] = useState({
     title: "",
     description: "",
@@ -20,9 +28,15 @@ function AddProfilePage() {
     amenities: [],
   });
 
-  const submitHandler = () => {
-    console.log(profileData);
+  const submitHandler = async () => {
+    setLoading(true);
+    axios
+      .post("/api/profile", { ...profileData })
+      .then((res) => Toast(res.data.message, "success"))
+      .catch((err) => Toast(err.response.data.error, "error"))
+      .finally(() => setLoading(false));
   };
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>ثبت آگهی</h3>
@@ -82,9 +96,13 @@ function AddProfilePage() {
         profileData={profileData}
         setProfileData={setProfileData}
       />
-      <button className={styles.button} onClick={submitHandler}>
-        ثبت آگهی
-      </button>
+      {loading ? (
+        <Loading />
+      ) : (
+        <button className={styles.button} onClick={submitHandler}>
+          ثبت آگهی
+        </button>
+      )}
     </div>
   );
 }

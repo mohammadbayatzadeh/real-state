@@ -7,11 +7,10 @@ import axios from "axios";
 
 //components
 import Toast from "../elements/Toast";
-import { ThreeDots } from "react-loader-spinner";
+import Loading from "../elements/Loading";
 
 //styles
 import styles from "./AuthPage.module.css";
-
 
 function LoginPage() {
   const router = useRouter();
@@ -41,14 +40,13 @@ function LoginPage() {
         password: form.password,
       })
       .then((res) => {
-        setLoading(false);
         Toast(res.data.message, "success");
         router.push("/login");
       })
       .catch((err) => {
-        setLoading(false);
         Toast(err.response.data.error, "error");
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -75,19 +73,7 @@ function LoginPage() {
         type="password"
         onChange={(e) => changeHandler(e)}
       />
-      {loading ? (
-        <ThreeDots
-          height="55"
-          width="80"
-          radius="9"
-          color="#465293"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ margin: " 0 auto" }}
-          visible={loading}
-        />
-      ) : (
-        <button onClick={submit}>ثبت نام </button>
-      )}
+      {loading ? <Loading /> : <button onClick={submit}>ثبت نام </button>}
       <p>
         آیا حساب دارید؟ <Link href="/login">ورود</Link>
       </p>

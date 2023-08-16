@@ -9,7 +9,10 @@ function LogoutButton() {
   return (
     <button
       className={styles.button}
-      onClick={() => (signOut({ redirect: false }), router.replace("/"))}
+      onClick={() => {
+        signOut({ redirect: false });
+        router.push("/");
+      }}
     >
       <FiLogOut />
       خروج
