@@ -15,7 +15,7 @@ function AddProfilePage() {
     price: "",
     realState: "",
     contructionDate: new Date(),
-    category: "",
+    category: "apartment",
     rules: [],
     amenities: [],
   });

@@ -13,14 +13,13 @@ export const authOptions = {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        const { email, password } = credentials;
-
         try {
           await connectDB();
-        } catch (err) {
+        } catch {
           throw new Error("مشکلی در سرور رخ داده است.");
         }
 
+        const { email, password } = credentials;
         if (!email || !password)
           throw new Error("لطفا اطلاعات را کامل وارد کنید");
 
@@ -28,7 +27,6 @@ export const authOptions = {
         if (!boss) throw new Error("ابتدا حسال کاربری ایجاد کنید");
 
         const isValid = await comparePassword(password, boss.password);
-
         if (!isValid) throw new Error("ایمیل یا رمزعبور اشتباه است");
 
         return { email };
@@ -36,5 +34,6 @@ export const authOptions = {
     }),
   ],
 };
+
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

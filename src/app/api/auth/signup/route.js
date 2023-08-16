@@ -12,6 +12,7 @@ export async function POST(req) {
     await connectDB();
 
     const { email, password } = await req.json();
+
     if (!email || !password) {
       return NextResponse.json(
         { error: "لطفا اطلاعات را کامل وارد کنید" },
@@ -20,6 +21,7 @@ export async function POST(req) {
     }
 
     const existingBoss = await Boss.findOne({ email });
+    
     if (existingBoss) {
       return NextResponse.json(
         { error: "این کاربر قبلا ثبت نام کرده است" },
