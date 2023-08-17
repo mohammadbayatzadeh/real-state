@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //compoents
@@ -13,7 +13,7 @@ import Loading from "../elements/Loading";
 //styles
 import styles from "./AddProfilePage.module.css";
 
-function AddProfilePage() {
+function AddProfilePage({ data }) {
   const [loading, setLoading] = useState(false);
   const [profileData, setProfileData] = useState({
     title: "",
@@ -28,6 +28,17 @@ function AddProfilePage() {
     amenities: [],
   });
 
+  useEffect(() => {
+    data && setProfileData(data);
+  }, []);
+  const editHandler = async () => {
+    setLoading(true);
+    // axios
+    //   .post("/api/profile", { ...profileData })
+    //   .then((res) => Toast(res.data.message, "success"))
+    //   .catch((err) => Toast(err.response.data.error, "error"))
+    //   .finally(() => setLoading(false));
+  };
   const submitHandler = async () => {
     setLoading(true);
     axios
@@ -39,7 +50,7 @@ function AddProfilePage() {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>ثبت آگهی</h3>
+      <h3 className={styles.title}>{data ? "ویرایش آگهی" : "ثبت آگهی"}</h3>
       <TextInput
         title={"عنوان"}
         name={"title"}
@@ -99,8 +110,11 @@ function AddProfilePage() {
       {loading ? (
         <Loading />
       ) : (
-        <button className={styles.button} onClick={submitHandler}>
-          ثبت آگهی
+        <button
+          className={styles.button}
+          onClick={data ? editHandler : submitHandler}
+        >
+          {data ? "ویرایش آگهی" : "ثبت آگهی"}
         </button>
       )}
     </div>

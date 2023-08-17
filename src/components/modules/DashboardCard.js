@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 //styles
 import styles from "./DashboardCard.module.css";
@@ -11,8 +12,11 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 
 function DashboardCard({ data }) {
+  const router = useRouter();
   const deleteHandler = () => {};
-  const editHandler = () => {};
+  const editHandler = () => {
+    router.push(`my-profiles/${data._id}`);
+  };
   return (
     <div className={styles.container}>
       <Card data={data} />
