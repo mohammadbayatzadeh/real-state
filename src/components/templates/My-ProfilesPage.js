@@ -1,12 +1,17 @@
-"use client";
-
 //styles
 
+import DashboardCard from "../modules/DashboardCard";
 import styles from "./My-ProfilesPage.module.css";
 function MyProfilesPage({ profiles }) {
-  console.log("first");
-  console.log(profiles);
-  return <div className={styles.container}>MyProfilesPage</div>;
+  return (
+    <div className={styles.container}>
+      {profiles.length ? (
+        profiles.map((i) => <DashboardCard key={i._id} data={i} />)
+      ) : (
+        <p>هیج آگهی ثبت نشده است.</p>
+      )}
+    </div>
+  );
 }
 
 export default MyProfilesPage;

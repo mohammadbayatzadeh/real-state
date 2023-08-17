@@ -1,0 +1,30 @@
+.container {
+  padding: 10px;
+  border-radius: 7px;
+  border: 2px solid var(--color-first);
+  width: 100%;
+  margin: 5px;
+  display: flex;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.buttons button {
+  width: 100%;
+  margin-bottom: 5px;
+  border: 2px solid var(--color-first);
+  border-radius: 7px;
+  margin: 5px;
+  background: none;
+  color: var(--color-first);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete {
+  color: var(--color-fourth) !important;
+  border: 2px solid var(--color-fourth) !important;
+}

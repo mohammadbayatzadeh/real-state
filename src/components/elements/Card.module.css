@@ -1,0 +1,30 @@
+.container {
+  padding: 10px;
+  border-radius: 7px;
+  border: 2px solid var(--color-first);
+  width: 30%;
+  margin: 0px 0px 5px 5px;
+}
+
+.icon svg {
+  background-color: var(--color-first);
+  padding: 1px;
+  border-radius: 7px;
+  font-size: 1.8em;
+  color: var(--color-light);
+}
+.location,
+.price,
+.row {
+  display: flex;
+  align-items: baseline;
+  color: var(--color-first);
+  font-weight: 300;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.row {
+  width: 100%;
+  justify-content: space-between;
+  transition: 0.5s all ease;
+}
