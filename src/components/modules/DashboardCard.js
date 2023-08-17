@@ -10,13 +10,22 @@ import Card from "../elements/Card";
 //icons
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
+import axios from "axios";
+import Toast from "../elements/Toast";
 
 function DashboardCard({ data }) {
   const router = useRouter();
-  const deleteHandler = () => {};
+  const deleteHandler = async () => {
+    axios
+      .delete(`/api/profile/delete/${data._id}`)
+      .then((res) => (Toast(res.data.message, "success"), router.refresh()))
+      .catch((err) => Toast(err.response.data.error, "error"));
+  };
+
   const editHandler = () => {
     router.push(`my-profiles/${data._id}`);
   };
+
   return (
     <div className={styles.container}>
       <Card data={data} />

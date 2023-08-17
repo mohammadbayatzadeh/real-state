@@ -40,7 +40,7 @@ function AddProfilePage({ data }) {
       .patch("/api/profile", { _id: data._id, ...profileData })
       .then(
         (res) => (
-          Toast(res.data.message, "success"), router.replace("/dashboard")
+          Toast(res.data.message, "success"), router.push("/dashboard")
         )
       )
       .catch((err) => Toast(err.response.data.error, "error"))
