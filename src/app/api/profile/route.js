@@ -79,6 +79,7 @@ export async function PATCH(req) {
     await connectDB();
     const body = await req.json();
     const {
+      _id,
       title,
       description,
       location,
@@ -127,7 +128,7 @@ export async function PATCH(req) {
     }
 
     const profile = await Profile.findOne({ _id });
-    if (!existingBoss._id.equals(profile._id)) {
+    if (!existingBoss._id.equals(profile.userId)) {
       return NextResponse.json(
         {
           error: "دسترسی شما به این آگهی محدود شده است",
