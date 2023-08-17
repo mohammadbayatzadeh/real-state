@@ -6,7 +6,7 @@ function MyProfilesPage({ profiles }) {
   return (
     <div className={styles.container}>
       {profiles.length ? (
-        profiles.map((i) => <DashboardCard key={i._id} data={i} />)
+        profiles.map((i) => <DashboardCard key={i._id} data={JSON.parse(JSON.stringify(i))} />)
       ) : (
         <p>هیج آگهی ثبت نشده است.</p>
       )}

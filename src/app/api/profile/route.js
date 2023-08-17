@@ -73,3 +73,95 @@ export async function POST(req) {
     );
   }
 }
+
+export async function PATCH(req) {
+  try {
+    await connectDB();
+    const body = await req.json();
+    const {
+      title,
+      description,
+      location,
+      phone,
+      price,
+      realState,
+      contructionDate,
+      category,
+      rules,
+      amenities,
+    } = body;
+
+    const session = await getServerSession(req);
+    if (!session) {
+      return NextResponse.json(
+        { error: "شما احراز هویت نشده اید" },
+        { error: 401 }
+      );
+    }
+
+    const existingBoss = await Boss.findOne({ email: session.user.email });
+    if (!existingBoss) {
+      return NextResponse.json(
+        { error: "حساب کابری شما یافت نشد" },
+        { error: 404 }
+      );
+    }
+
+    if (
+      !_id ||
+      !title ||
+      !description ||
+      !location ||
+      !phone ||
+      !price ||
+      !realState ||
+      !contructionDate ||
+      !category
+    ) {
+      return NextResponse.json(
+        {
+          error: " لطفا اطلاعات را کامل وارد کنید",
+        },
+        { status: 404 }
+      );
+    }
+
+    const profile = await Profile.findOne({ _id });
+    if (!existingBoss._id.equals(profile._id)) {
+      return NextResponse.json(
+        {
+          error: "دسترسی شما به این آگهی محدود شده است",
+        },
+        { status: 403 }
+      );
+    }
+
+    profile.title = title;
+    profile.description = description;
+    profile.location = location;
+    profile.phone = phone;
+    profile.realState = realState;
+    profile.price = price;
+    profile.contructionDate = contructionDate;
+    profile.amenities = amenities;
+    profile.rules = rules;
+    profile.category = category;
+    await profile.save();
+
+    return NextResponse.json(
+      {
+        message: "آگهی با موفقیت ویرایش شد",
+      },
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    return NextResponse.json(
+      {
+        error: "مشکلی در ارنباط در سرور بوجود آمده است",
+      },
+      { status: 500 }
+    );
+  }
+}
