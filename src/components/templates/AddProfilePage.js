@@ -22,7 +22,7 @@ function AddProfilePage({ data }) {
     description: "",
     location: "",
     phone: "",
-    price: "",
+    price: 0,
     realState: "",
     contructionDate: new Date(),
     category: "apartment",
@@ -39,9 +39,7 @@ function AddProfilePage({ data }) {
     axios
       .patch("/api/profile", { _id: data._id, ...profileData })
       .then(
-        (res) => (
-          Toast(res.data.message, "success"), router.push("/dashboard")
-        )
+        (res) => (Toast(res.data.message, "success"), router.push("/dashboard"))
       )
       .catch((err) => Toast(err.response.data.error, "error"))
       .finally(() => setLoading(false));
@@ -52,8 +50,7 @@ function AddProfilePage({ data }) {
     axios
       .post("/api/profile", { ...profileData })
       .then(
-        (res) => Toast(res.data.message, "success"),
-        router.push("/dashboard")
+        (res) => (Toast(res.data.message, "success"), router.push("/dashboard"))
       )
       .catch((err) => Toast(err.response.data.error, "error"))
       .finally(() => setLoading(false));
@@ -83,7 +80,7 @@ function AddProfilePage({ data }) {
         textArea={true}
       />
       <TextInput
-        title={" بنگاه"}
+        title={"بنگاه"}
         name={"realState"}
         profileData={profileData}
         setProfileData={setProfileData}
