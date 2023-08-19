@@ -1,0 +1,21 @@
+.container {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--color-second);
+  border: 2px solid var(--color-first);
+  margin: 0 auto;
+  transition: 0.5s all ease;
+  cursor: pointer;
+}
+.container img {
+  border-radius: 10px;
+  border: 2px solid var(--color-first);
+}
+.container p {
+  text-align: center;
+  color: var(--color-first);
+  font-weight: 300;
+}
+.container:hover {
+  transform: translateY(-10px);
+}

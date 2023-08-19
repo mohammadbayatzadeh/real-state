@@ -1,3 +1,7 @@
-export default function Home() {
-  return <main>real state</main>;
+import HomePage from "@/components/templates/HomePage";
+
+function page() {
+  return <HomePage />;
 }
+
+export default page;
