@@ -1,7 +1,13 @@
-import DashboardPage from "@/components/templates/DashboardPage";
-import connectDB from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+
+//functions
+import connectDB from "@/utils/connectDB";
+
+//tmeplates
+import DashboardPage from "@/components/templates/DashboardPage";
+
+//models
 import Boss from "@/models/Boss";
 
 async function Dahboard() {

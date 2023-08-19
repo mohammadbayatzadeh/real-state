@@ -1,9 +1,33 @@
-import Profile from "@/models/Profile";
-import connectDB from "@/utils/connectDB";
 import { Types } from "mongoose";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+
+import connectDB from "@/utils/connectDB";
+//functions
+
+//models
 import Boss from "@/models/Boss";
+import Profile from "@/models/Profile";
+
+export async function GET(req) {
+  try {
+    await connectDB();
+    const profiles = await Profile.find().select("-userId");
+    return NextResponse.json(
+      {
+        data: profiles,
+      },
+      { status: 200 }
+    );
+  } catch {
+    return NextResponse.json(
+      {
+        error: "مشکلی در ارنباط در سرور بوجود آمده است",
+      },
+      { status: 500 }
+    );
+  }
+}
 
 export async function POST(req) {
   try {

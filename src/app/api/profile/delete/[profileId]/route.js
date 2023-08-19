@@ -1,8 +1,12 @@
-import Boss from "@/models/Boss";
-import Profile from "@/models/Profile";
-import connectDB from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+
+//functions
+import connectDB from "@/utils/connectDB";
+
+//models
+import Boss from "@/models/Boss";
+import Profile from "@/models/Profile";
 
 export async function DELETE(req, context) {
   try {
