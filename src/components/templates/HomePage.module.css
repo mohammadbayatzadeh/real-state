@@ -35,3 +35,24 @@
   justify-content: space-between;
   margin: 60px 0;
 }
+.cities {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cities span {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 20px;
+  font-weight: 300;
+  border: 2px solid var(--color-first);
+  color: var(--color-first);
+  margin: 0 10px 10px;
+  cursor: pointer;
+  transition: .5s all ease;
+}
+.cities span:not(:hover) {
+  opacity: 0.5;
+}

@@ -11,7 +11,7 @@ function HomePage() {
     "اصفهان",
     "رشت",
     "اهواز",
-    "بزد",
+    "یزد",
     "کرج",
     "مشهد",
     "خرم آباد",
@@ -35,6 +35,11 @@ function HomePage() {
         <CategoryCard name="apartment" title="منزل آپارتمانی" />
         <CategoryCard name="office" title="دفتر کار " />
         <CategoryCard name="store" title="مغازه" />
+      </div>
+      <div className={styles.cities}>
+        {cities.map((i, index) => (
+          <span key={index}>{i}</span>
+        ))}
       </div>
     </div>
   );
