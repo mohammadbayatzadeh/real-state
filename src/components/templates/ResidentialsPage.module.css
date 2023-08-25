@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
 }
-.container .sidebar {
+.sidebar {
   padding: 10px;
   border-radius: 7px;
   border: 2px solid var(--color-first);
@@ -10,6 +10,20 @@
   width: 200px;
   display: flex;
   flex-direction: column;
+}
+.sidebar p {
+  color: var(--color-first);
+  font-weight: 400;
+}
+.sidebar li {
+  padding-right: 10px;
+  transition: all 0.5s ease;
+}
+.sidebar li:hover {
+  padding-right: 15px;
+}
+.sidebar ul {
+  list-style: none;
 }
 .container .main {
   width: 100%;
