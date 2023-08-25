@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+.container .sidebar {
+  padding: 10px;
+  border-radius: 7px;
+  border: 2px solid var(--color-first);
+  margin: 0px 0px 5px 5px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.container .main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.error {
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 300;
+  background-color: var(--color-fourth);
+  color: var(--color-light);
+}

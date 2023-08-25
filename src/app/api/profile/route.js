@@ -9,7 +9,7 @@ import connectDB from "@/utils/connectDB";
 import Boss from "@/models/Boss";
 import Profile from "@/models/Profile";
 
-export async function GET(req) {
+export async function GET() {
   try {
     await connectDB();
     const profiles = await Profile.find().select("-userId");
