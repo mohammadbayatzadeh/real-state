@@ -1,13 +1,19 @@
 .container {
   width: 100%;
 }
-.banner h3 {
+.banner h1 {
   font-size: 3em;
   color: var(--color-first);
   font-weight: 300;
   text-align: center;
 }
-
+.container h2 {
+  font-size: 2em;
+  color: var(--color-first);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 30px;
+}
 .banner ul {
   width: 100%;
   justify-content: center;
@@ -21,6 +27,7 @@
   border: 1px solid var(--color-first);
   border-radius: 7px;
   margin: 0 5px;
+  cursor: pointer;
 }
 .banner span {
   width: 10px;
@@ -51,7 +58,7 @@
   color: var(--color-first);
   margin: 0 10px 10px;
   cursor: pointer;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
 }
 .cities span:not(:hover) {
   opacity: 0.5;

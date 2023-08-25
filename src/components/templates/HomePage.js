@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <div className={styles.container}>
       <div className={styles.banner}>
-        <h3>سامانه خرید و فروش ملک</h3>
+        <h1>سامانه خرید و فروش ملک</h1>
         <ul>
           {services.map((i, index) => (
             <li key={index}>
@@ -36,6 +36,8 @@ function HomePage() {
         <CategoryCard name="office" title="دفتر کار " />
         <CategoryCard name="store" title="مغازه" />
       </div>
+      <h2>شهر های پربازدید</h2>
+
       <div className={styles.cities}>
         {cities.map((i, index) => (
           <span key={index}>{i}</span>
