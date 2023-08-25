@@ -13,6 +13,13 @@
   font-size: 1.8em;
   color: var(--color-light);
 }
+.title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .location,
 .price,
 .row {
@@ -22,9 +29,26 @@
   font-weight: 300;
   font-size: 0.9em;
   margin-top: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .row {
   width: 100%;
+  display: flex;
   justify-content: space-between;
   transition: 0.5s all ease;
+}
+@media (max-width: 1000px) {
+  .container {
+    width: 48%;
+  }
+}
+
+@media (max-width: 660px) {
+  .container {
+    width: 100%;
+  }
 }

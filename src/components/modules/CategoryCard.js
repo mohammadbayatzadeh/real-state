@@ -1,9 +1,13 @@
 //styles
 import Image from "next/image";
 import styles from "./CategoryCard.module.css";
+import Link from "next/link";
 function CategoryCard({ name, title, link }) {
   return (
-    <div className={styles.container}>
+    <Link
+      className={styles.container}
+      href={{ pathname: "residentials", query: { category: name } }}
+    >
       <Image
         src={`/images/${name}.png`}
         alt={title}
@@ -12,7 +16,7 @@ function CategoryCard({ name, title, link }) {
         priority={true}
       />
       <p>{title}</p>
-    </div>
+    </Link>
   );
 }
 

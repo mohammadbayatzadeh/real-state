@@ -20,7 +20,7 @@ function Card({ data: { category, title, price, location } }) {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>{icons[category]}</div>
-      <div className={styles.title}> {title}</div>
+      <div className={styles.title} > {title}</div>
       <div className={styles.location}>
         <HiLocationMarker /> {location}
       </div>

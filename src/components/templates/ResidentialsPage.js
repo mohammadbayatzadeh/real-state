@@ -3,7 +3,13 @@ import Card from "../elements/Card";
 import styles from "./ResidentialsPage.module.css";
 
 function ResidentialsPage({ data }) {
-  const categories = ["همه", "ویلایی", "آپارتمان", "مغازه", "دفتر"];
+  const categories = [
+    { title: "همه", route: "all" },
+    { title: "ویلایی", route: "villa" },
+    { title: "آپارتمان", route: "apartment" },
+    { title: "مغازه", route: "store" },
+    { title: "دفتر", route: "office" },
+  ];
   if (data.error)
     return (
       <h3 className={styles.error}> مشکلی در دریافت اطلاعات پیش آمده است </h3>
@@ -16,7 +22,9 @@ function ResidentialsPage({ data }) {
         <ul>
           {categories.map((item, index) => (
             <li key={index}>
-              <Link href='/'>{item}</Link>
+              <Link href={`/residentials?category=${item.route}`}>
+                {item.title}
+              </Link>
             </li>
           ))}
         </ul>

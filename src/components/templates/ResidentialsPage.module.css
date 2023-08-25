@@ -3,11 +3,12 @@
   display: flex;
 }
 .sidebar {
+  width: 200px;
+  height: max-content;
   padding: 10px;
   border-radius: 7px;
   border: 2px solid var(--color-first);
   margin: 0px 0px 5px 5px;
-  width: 200px;
   display: flex;
   flex-direction: column;
 }
@@ -32,6 +33,7 @@
 }
 .error {
   padding: 10px;
+  height: max-content;
   border-radius: 10px;
   font-weight: 300;
   background-color: var(--color-fourth);
