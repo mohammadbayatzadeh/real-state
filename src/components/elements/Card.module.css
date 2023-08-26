@@ -2,8 +2,8 @@
   padding: 10px;
   border-radius: 7px;
   border: 2px solid var(--color-first);
-  width: 30%;
-  margin: 0px 0px 5px 5px;
+  width: 32%;
+  margin-bottom: 5px;
 }
 
 .icon svg {

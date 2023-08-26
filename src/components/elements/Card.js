@@ -10,7 +10,7 @@ import { HiLocationMarker } from "react-icons/hi";
 import { sp } from "@/utils/functions";
 import Link from "next/link";
 
-function Card({ data: { category, title, price, location } }) {
+function Card({ data: { _id, category, title, price, location } }) {
   const icons = {
     villa: <RiHome3Line />,
     apartment: <MdApartment />,
@@ -20,12 +20,12 @@ function Card({ data: { category, title, price, location } }) {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>{icons[category]}</div>
-      <div className={styles.title} > {title}</div>
+      <div className={styles.title}> {title}</div>
       <div className={styles.location}>
         <HiLocationMarker /> {location}
       </div>
       <div className={styles.price}> {sp(price)} تومان</div>
-      <Link href="/" className={styles.row}>
+      <Link href={`/residentials/${_id}`} className={styles.row}>
         مشاهده آگهی <BiLeftArrow />
       </Link>
     </div>

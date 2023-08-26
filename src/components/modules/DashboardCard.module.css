@@ -16,7 +16,7 @@
   margin-bottom: 5px;
   border: 2px solid var(--color-first);
   border-radius: 7px;
-  margin: 5px;
+  margin: 0px 5px 5px;
   background: none;
   color: var(--color-first);
   cursor: pointer;
