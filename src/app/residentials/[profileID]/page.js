@@ -1,9 +1,9 @@
 import ProfileDetailsPage from "@/components/templates/ProfileDetailsPage";
+import axios from "axios";
 
 async function page({ params: { profileID } }) {
-  const data = await fetch(`http://localhost:3000/api/profile/${profileID}`, {
-    cache: "force-cache",
-  }).then((res) => res.json());
+  const res = await axios.get(`http://localhost:3000/api/profile/${profileID}`);
+  const { data } = res;
   return <ProfileDetailsPage profile={data.data} />;
 }
 

@@ -1,12 +1,16 @@
-import Profile from "@/models/Profile";
-import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
-export async function GET(context) {
+//models
+import Profile from "@/models/Profile";
+
+//functions
+import connectDB from "@/utils/connectDB";
+
+export async function GET(req, context) {
   try {
     await connectDB();
     const id = context.params.profileId;
-    const profile = await Profile.findOne({ _id: id });
+    const profile = await Profile.findOne({ _id: id }).lean();
     return NextResponse.json(
       { message: "آگهی با موفقیت دریافت شد", data: { ...profile } },
       { status: 200 }
