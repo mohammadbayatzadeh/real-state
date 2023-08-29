@@ -2,7 +2,7 @@
 
 //styles
 import styles from "./ProfileDetailsPage.module.css";
-
+//icons
 import { SiHomebridge } from "react-icons/si";
 import { AiOutlinePhone } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
@@ -12,8 +12,13 @@ import { MdApartment } from "react-icons/md";
 import { BiStore } from "react-icons/bi";
 import { GiOfficeChair } from "react-icons/gi";
 import { VscCalendar } from "react-icons/vsc";
-import ItemList from "../elements/ItemList";
+
+//functions
 import { e2p, sp } from "@/utils/functions";
+
+//components
+import ShareButton from "../elements/ShareButton";
+import ItemList from "../elements/ItemList";
 
 function ProfileDetailsPage({ profile }) {
   const {
@@ -72,6 +77,7 @@ function ProfileDetailsPage({ profile }) {
             <AiOutlinePhone /> {e2p(phone)}
           </p>
         </div>
+        <ShareButton />
         <div className={styles.category}>
           <p>
             {icons[category]} {categories[category]}
