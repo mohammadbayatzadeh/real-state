@@ -1,22 +1,17 @@
-//styles
 import Link from "next/link";
+
+//styles
 import styles from "./HomePage.module.css";
+
+//components
 import CategoryCard from "../modules/CategoryCard";
 
+//constants
+import { cities } from "@/constants/cities";
+import { services } from "@/constants/services";
+import { categories } from "@/constants/categories";
+
 function HomePage() {
-  const services = ["رهن", "اجاره", "خرید", "فروش"];
-  const cities = [
-    "تهران",
-    "شیراز",
-    "اصفهان",
-    "رشت",
-    "اهواز",
-    "یزد",
-    "کرج",
-    "مشهد",
-    "خرم آباد",
-    "قزوین",
-  ];
   return (
     <div className={styles.container}>
       <div className={styles.banner}>
@@ -31,10 +26,12 @@ function HomePage() {
         </ul>
       </div>
       <div className={styles.category}>
-        <CategoryCard name="villa" title="منزل ویلایی" />
-        <CategoryCard name="apartment" title="منزل آپارتمانی" />
-        <CategoryCard name="office" title="دفتر کار " />
-        <CategoryCard name="store" title="مغازه" />
+        {categories.map(
+          (item, index) =>
+            index > 0 && (
+              <CategoryCard key={index} name={item.route} title={item.title} />
+            )
+        )}
       </div>
       <h2>شهر های پربازدید</h2>
 

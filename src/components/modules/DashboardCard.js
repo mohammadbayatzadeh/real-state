@@ -8,10 +8,14 @@ import styles from "./DashboardCard.module.css";
 import Card from "../elements/Card";
 
 //icons
+import axios from "axios";
+
+//comps
+import Toast from "../elements/Toast";
+
+//icons
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-import axios from "axios";
-import Toast from "../elements/Toast";
 
 function DashboardCard({ data }) {
   const router = useRouter();

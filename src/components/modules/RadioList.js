@@ -1,4 +1,6 @@
+//styles
 import styles from "./RadioList.module.css";
+
 function RadioList({ profileData, setProfileData }) {
   const { category } = profileData;
 

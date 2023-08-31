@@ -1,4 +1,7 @@
+//functions
 import { p2e } from "@/utils/functions";
+
+//styles
 import styles from "./TextInput.module.css";
 
 function TextInput({

@@ -1,9 +1,13 @@
 "use client";
-
-import { signOut } from "next-auth/react";
-import styles from "./LogoutButton.module.css";
-import { FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
+
+//icons
+import { FiLogOut } from "react-icons/fi";
+
+//styles
+import styles from "./LogoutButton.module.css";
+
 function LogoutButton() {
   const router = useRouter();
   return (

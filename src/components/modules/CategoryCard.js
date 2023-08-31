@@ -1,7 +1,9 @@
-//styles
-import Image from "next/image";
-import styles from "./CategoryCard.module.css";
 import Link from "next/link";
+import Image from "next/image";
+
+//styles
+import styles from "./CategoryCard.module.css";
+
 function CategoryCard({ name, title, link }) {
   return (
     <Link

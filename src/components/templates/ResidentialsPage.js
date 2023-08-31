@@ -1,15 +1,9 @@
 import Link from "next/link";
 import Card from "../elements/Card";
 import styles from "./ResidentialsPage.module.css";
+import { categories } from "@/constants/categories";
 
 function ResidentialsPage({ data }) {
-  const categories = [
-    { title: "همه", route: "all" },
-    { title: "ویلایی", route: "villa" },
-    { title: "آپارتمان", route: "apartment" },
-    { title: "مغازه", route: "store" },
-    { title: "دفتر", route: "office" },
-  ];
   if (data.error)
     return (
       <h3 className={styles.error}> مشکلی در دریافت اطلاعات پیش آمده است </h3>

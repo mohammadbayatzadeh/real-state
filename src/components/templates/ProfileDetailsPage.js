@@ -2,15 +2,13 @@
 
 //styles
 import styles from "./ProfileDetailsPage.module.css";
+
 //icons
 import { SiHomebridge } from "react-icons/si";
 import { AiOutlinePhone } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BiCalendarCheck } from "react-icons/bi";
-import { RiHome3Line } from "react-icons/ri";
-import { MdApartment } from "react-icons/md";
-import { BiStore } from "react-icons/bi";
-import { GiOfficeChair } from "react-icons/gi";
+
 import { VscCalendar } from "react-icons/vsc";
 
 //functions
@@ -19,6 +17,10 @@ import { e2p, sp } from "@/utils/functions";
 //components
 import ShareButton from "../elements/ShareButton";
 import ItemList from "../elements/ItemList";
+import { icons } from "@/constants/icons";
+
+//constants
+import { categories } from "@/constants/categories";
 
 function ProfileDetailsPage({ profile }) {
   const {
@@ -35,19 +37,6 @@ function ProfileDetailsPage({ profile }) {
     contructionDate,
   } = profile;
 
-  const icons = {
-    villa: <RiHome3Line />,
-    apartment: <MdApartment />,
-    store: <BiStore />,
-    office: <GiOfficeChair />,
-  };
-
-  const categories = {
-    apartment: "آپارتمان",
-    villa: "ویلا",
-    store: "مغازه",
-    office: "دفتر",
-  };
   return (
     <div className={styles.container}>
       <div className={styles.main}>
@@ -80,11 +69,12 @@ function ProfileDetailsPage({ profile }) {
         <ShareButton />
         <div className={styles.category}>
           <p>
-            {icons[category]} {categories[category]}
+            {icons[category]}
+            {categories.find((item) => item.route === category).title}
           </p>
           <p>{sp(price)}</p>
           <p>
-            <BiCalendarCheck />{" "}
+            <BiCalendarCheck />
             {new Date(contructionDate).toLocaleDateString("fa-IR")}
           </p>
         </div>

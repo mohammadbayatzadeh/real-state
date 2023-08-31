@@ -1,11 +1,13 @@
 "use client";
+import Link from "next/link";
 
 //styles
 import styles from "./DashboardSideBar.module.css";
 
 //icons
 import { VscAccount } from "react-icons/vsc";
-import Link from "next/link";
+
+//comps
 import LogoutButton from "../elements/LogoutButton";
 
 function DashboardSideBar({ children, session }) {
