@@ -1,8 +1,14 @@
-import DashboardSideBar from "@/components/layout/DashboardSideBar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+
+//functions
 import connectDB from "@/utils/connectDB";
+
+//templates
+import DashboardSideBar from "@/components/layout/DashboardSideBar";
+
+//models
 import Boss from "@/models/Boss";
 
 async function DashboardLayout({ children }) {

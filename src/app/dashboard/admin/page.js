@@ -1,10 +1,16 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import Boss from "@/models/Boss";
-import connectDB from "@/utils/connectDB";
-import { connect } from "mongoose";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import React from "react";
+
+//functions
+import connectDB from "@/utils/connectDB";
+
+//models
+import Profile from "@/models/Profile";
+import Boss from "@/models/Boss";
+
+//templates
+import AdminPage from "@/components/templates/AdminPage";
 
 async function Admin() {
   await connectDB();
@@ -13,7 +19,9 @@ async function Admin() {
   const user = await Boss.findOne({ email: session.user.email });
 
   if (user.role !== "ADMIN") redirect("/dashboard");
-  return <div>Admin</div>;
+  const profiles = await Profile.find({ published: false });
+
+  return <AdminPage profiles={JSON.parse(JSON.stringify(profiles))} />;
 }
 
 export default Admin;
