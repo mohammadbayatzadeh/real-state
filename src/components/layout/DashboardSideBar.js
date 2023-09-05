@@ -10,12 +10,12 @@ import { VscAccount } from "react-icons/vsc";
 //comps
 import LogoutButton from "../elements/LogoutButton";
 
-function DashboardSideBar({ children, session }) {
+function DashboardSideBar({ children, email, role }) {
   return (
     <div className={styles.container}>
       <aside className={styles.aside}>
         <VscAccount />
-        <p className={styles.email}>{session?.user.email}</p>
+        <p className={styles.email}>{email}</p>
         <span></span>
         <Link href="/dashboard">حساب کاربری</Link>
         <Link href="/dashboard/my-profiles"> آگهی های من</Link>
