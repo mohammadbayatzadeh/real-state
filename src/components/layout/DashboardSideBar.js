@@ -21,8 +21,8 @@ function DashboardSideBar({ children, email, role }) {
         <Link href="/dashboard">حساب کاربری</Link>
         <Link href="/dashboard/my-profiles"> آگهی های من</Link>
         <Link href="/dashboard/add-profile">ثبت آگهی</Link>
-        {role === "ADMIN  " && (
-          <Link href="/dashboard/add-profile">در انتظار تایید</Link>
+        {role === "ADMIN" && (
+          <Link href="/dashboard/admin">در انتظار تایید</Link>
         )}
         <LogoutButton />
       </aside>
