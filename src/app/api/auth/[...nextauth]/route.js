@@ -10,6 +10,7 @@ import connectDB from "@/utils/connectDB";
 
 export const authOptions = {
   session: { strategy: "jwt" },
+  secret: process.env.NEXT_PUBLIC_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
