@@ -24,8 +24,8 @@ function ResidentialsPage({ data }) {
         </ul>
       </div>
       <div className={styles.main}>
-        {data.data.length ? (
-          data.data.map((profile) => <Card key={profile._id} data={profile} />)
+        {data.length > 0 ? (
+          data.map((profile) => <Card key={profile._id} data={profile} />)
         ) : (
           <h3 className={styles.error}>هیچ آگهی ثبت نشده است</h3>
         )}
