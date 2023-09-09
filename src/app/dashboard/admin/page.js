@@ -16,9 +16,11 @@ async function Admin() {
   await connectDB();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/");
-  const user = await Boss.findOne({ email: session.user.email });
 
+  const user = await Boss.findOne({ email: session.user.email });
   if (user.role !== "ADMIN") redirect("/dashboard");
+ 
+
   const profiles = await Profile.find({ published: false });
 
   return <AdminPage profiles={JSON.parse(JSON.stringify(profiles))} />;

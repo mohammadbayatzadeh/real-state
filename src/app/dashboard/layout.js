@@ -15,6 +15,7 @@ async function DashboardLayout({ children }) {
   await connectDB();
   const session = await getServerSession(authOptions);
   const user = await Boss.findOne({ email: session.user.email });
+  
   if (!session || !user) redirect("/login");
 
   return (
