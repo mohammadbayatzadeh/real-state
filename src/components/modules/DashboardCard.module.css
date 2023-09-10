@@ -24,6 +24,9 @@
   align-items: center;
   justify-content: center;
 }
+.buttons svg {
+  margin-left: 5px;
+}
 .delete {
   color: var(--color-fourth) !important;
   border: 2px solid var(--color-fourth) !important;

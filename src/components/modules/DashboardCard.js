@@ -16,13 +16,24 @@ import Toast from "../elements/Toast";
 //icons
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
+import { VscFoldUp ,VscFoldDown} from "react-icons/vsc";
 
 function DashboardCard({ data, type }) {
   const router = useRouter();
+
   const deleteHandler = async () => {
     axios
       .delete(`/api/profile/delete/${data._id}`)
       .then((res) => (Toast(res.data.message, "success"), router.refresh()))
+      .catch((err) => Toast(err.response.data.error, "error"));
+  };
+
+  const publishHandler = async (published) => {
+    axios
+      .patch("/api/profile/publish/" + data._id, { published })
+      .then(
+        (res) => (Toast(res.data.message, "success"), router.refresh())
+      )
       .catch((err) => Toast(err.response.data.error, "error"));
   };
 
@@ -37,12 +48,12 @@ function DashboardCard({ data, type }) {
         {type === "admin" ? (
           <>
             {data.published ? (
-              <button>
-                <FiEdit /> پنهان
+              <button onClick={() => publishHandler(false)}>
+                <VscFoldDown   /> پنهان
               </button>
             ) : (
-              <button>
-                <FiEdit /> انتشار
+              <button onClick={() => publishHandler(true)}>
+                <VscFoldUp /> انتشار
               </button>
             )}
             <button onClick={editHandler}>

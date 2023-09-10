@@ -84,3 +84,13 @@
     flex-direction: row;
   }
 }
+
+@media (max-width: 600px) {
+  .sidebar {
+    flex-wrap: wrap;
+  }
+  .realstate,
+  .category {
+    width: 100%;
+  }
+}

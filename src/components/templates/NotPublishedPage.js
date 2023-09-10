@@ -10,7 +10,7 @@ function NotPublishedPage({ profiles }) {
             <DashboardCard key={i._id} data={JSON.parse(JSON.stringify(i))} type="admin"/>
           ))
         ) : (
-          <p>هیج آگهی ثبت نشده است.</p>
+          <p>هیج آگهی در انتظاری نیست.</p>
         )}
       </div>
     </div>
