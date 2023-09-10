@@ -1,5 +1,7 @@
-//styles
+//comps
 import DashboardCard from "../modules/DashboardCard";
+
+//styles
 import styles from "./AllProfilesPage.module.css";
 
 function AllProfilesPage({ profiles }) {

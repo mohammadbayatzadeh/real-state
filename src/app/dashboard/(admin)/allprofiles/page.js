@@ -1,9 +1,15 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+
+//templates
 import AllProfilesPage from "@/components/templates/AllProfilesPage";
+
+//functions
+import connectDB from "@/utils/connectDB";
+
+//models
 import Boss from "@/models/Boss";
 import Profile from "@/models/Profile";
-import connectDB from "@/utils/connectDB";
-import { getServerSession } from "next-auth";
 
 async function allProfiles() {
   await connectDB();
