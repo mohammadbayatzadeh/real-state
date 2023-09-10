@@ -30,7 +30,10 @@ export async function DELETE(req, context) {
     }
 
     const profile = await Profile.findOne({ _id: id });
-    if (!existingBoss._id.equals(profile.userId)) {
+    if (
+      !existingBoss._id.equals(profile.userId) &&
+      existingBoss.role !== "ADMIN"
+    ) {
       return NextResponse.json(
         {
           error: "دسترسی شما به این آگهی محدود شده است",

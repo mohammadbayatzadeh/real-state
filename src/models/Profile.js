@@ -48,6 +48,10 @@ const profileSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Boss",
     },
+    published: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

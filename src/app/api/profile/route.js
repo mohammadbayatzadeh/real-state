@@ -152,7 +152,10 @@ export async function PATCH(req) {
     }
 
     const profile = await Profile.findOne({ _id });
-    if (!existingBoss._id.equals(profile.userId)) {
+    if (
+      !existingBoss._id.equals(profile.userId) &&
+      existingBoss.role !== "ADMIN"
+    ) {
       return NextResponse.json(
         {
           error: "دسترسی شما به این آگهی محدود شده است",

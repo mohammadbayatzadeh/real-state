@@ -10,9 +10,9 @@ import Profile from "@/models/Profile";
 import Boss from "@/models/Boss";
 
 //templates
-import AdminPage from "@/components/templates/AdminPage";
+import AdminPage from "@/components/templates/NotPublishedPage";
 
-async function Admin() {
+async function notPublished() {
   await connectDB();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/");
@@ -26,4 +26,4 @@ async function Admin() {
   return <AdminPage profiles={JSON.parse(JSON.stringify(profiles))} />;
 }
 
-export default Admin;
+export default notPublished;

@@ -17,7 +17,7 @@ import Toast from "../elements/Toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 
-function DashboardCard({ data }) {
+function DashboardCard({ data, type }) {
   const router = useRouter();
   const deleteHandler = async () => {
     axios
@@ -34,13 +34,36 @@ function DashboardCard({ data }) {
     <div className={styles.container}>
       <Card data={data} />
       <div className={styles.buttons}>
-        <button onClick={editHandler}>
-          <FiEdit /> ویرایش
-        </button>
-        <button onClick={deleteHandler} className={styles.delete}>
-          <AiOutlineDelete />
-          حذف
-        </button>
+        {type === "admin" ? (
+          <>
+            {data.published ? (
+              <button>
+                <FiEdit /> پنهان
+              </button>
+            ) : (
+              <button>
+                <FiEdit /> انتشار
+              </button>
+            )}
+            <button onClick={editHandler}>
+              <FiEdit /> ویرایش
+            </button>
+            <button onClick={deleteHandler} className={styles.delete}>
+              <AiOutlineDelete />
+              حذف
+            </button>
+          </>
+        ) : (
+          <>
+            <button onClick={editHandler}>
+              <FiEdit /> ویرایش
+            </button>
+            <button onClick={deleteHandler} className={styles.delete}>
+              <AiOutlineDelete />
+              حذف
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
