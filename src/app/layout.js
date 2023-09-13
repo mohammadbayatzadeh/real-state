@@ -16,7 +16,9 @@ import NextAuthProvider from "@/providers/NextAuthProvider";
 export const metadata = {
   title: "سامانه خرید و فروش ملک",
   description: "سامانه خرید و فروش ملک",
+  icons: { icon: "./icon.ico" },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
