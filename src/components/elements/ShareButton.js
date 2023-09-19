@@ -7,6 +7,7 @@ import styles from "./ShareButton.module.css";
 
 //icons
 import { LuShare2 } from "react-icons/lu";
+import Toast from "./Toast";
 
 function ShareButton() {
   const [url, setUrl] = useState("");
@@ -17,7 +18,10 @@ function ShareButton() {
 
   return (
     <CopyToClipboard text={url}>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        onClick={() => Toast("لینک آگهی کپی شد", "success")}
+      >
         <LuShare2 /> <p> اشتراک گذاری</p>
       </div>
     </CopyToClipboard>

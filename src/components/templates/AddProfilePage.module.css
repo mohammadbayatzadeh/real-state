@@ -12,7 +12,9 @@
   border-radius: 7px;
   margin-bottom: 15px;
 }
-
+.select {
+  width: 300px;
+}
 .container button {
   background: none;
   border-radius: 10px;

@@ -7,13 +7,17 @@ import Profile from "@/models/Profile";
 //functions
 import connectDB from "@/utils/connectDB";
 
-async function Residentials({ searchParams: { category } }) {
+async function Residentials({ searchParams: { category, city } }) {
   await connectDB();
   const data = await Profile.find({ published: true });
-  const filteredData = data.filter((item) => item.category === category);
-
-  if (!category || category === "all") return <ResidentialsPage data={data} />;
-  return <ResidentialsPage data={filteredData} />;
+  const FilteredData =
+    category && category !== "all"
+      ? data.filter((item) => item.category === category)
+      : city
+      ? data.filter((item) => item.city === city)
+      : data;
+      
+  return <ResidentialsPage data={FilteredData} />;
 }
 
 export default Residentials;

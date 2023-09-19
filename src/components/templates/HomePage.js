@@ -37,7 +37,9 @@ function HomePage() {
 
       <div className={styles.cities}>
         {cities.map((i, index) => (
-          <span key={index}>{i}</span>
+          <Link key={index} href={`/residentials?city=${i.value}`}>
+            {i.label}
+          </Link>
         ))}
       </div>
     </div>
