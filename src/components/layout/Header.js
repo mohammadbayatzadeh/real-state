@@ -18,7 +18,7 @@ function Header() {
 
   const signoutHandler = async () => {
     signOut({ redirect: false });
-    router.replace("/");
+    router.push("/");
   };
   return (
     <header className={styles.header}>

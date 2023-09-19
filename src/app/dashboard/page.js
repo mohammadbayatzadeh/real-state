@@ -9,10 +9,13 @@ import DashboardPage from "@/components/templates/DashboardPage";
 
 //models
 import Boss from "@/models/Boss";
+import { redirect } from "next/navigation";
 
 async function Dahboard() {
   await connectDB();
   const session = await getServerSession(authOptions);
+  console.log(session);
+  if (!session) redirect("/");
   const user = await Boss.findOne({ email: session.user.email });
   return <DashboardPage date={user.createdAt} />;
 }
