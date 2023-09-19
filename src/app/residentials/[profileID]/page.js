@@ -1,19 +1,20 @@
 import ProfileDetailsPage from "@/components/templates/ProfileDetailsPage";
-import axios from "axios";
+import Profile from "@/models/Profile";
+import connectDB from "@/utils/connectDB";
 
 async function page({ params: { profileID } }) {
-  const res = await axios.get(`http://localhost:3000/api/profile/${profileID}`);
-  const { data } = res;
-  return <ProfileDetailsPage profile={data.data} />;
+  await connectDB();
+  const profile = await Profile.findOne({ _id: profileID });
+  return <ProfileDetailsPage profile={profile} />;
 }
 
 export default page;
 
 export const generateMetadata = async ({ params: { profileID } }) => {
-  const res = await axios.get(`http://localhost:3000/api/profile/${profileID}`);
-  const { data } = res;
+  await connectDB();
+  const profile = await Profile.findOne({ _id: profileID });
   return {
-    title: data.data.title,
-    description: data.data.description,
+    title: profile.title,
+    description: profile.description,
   };
 };
