@@ -15,11 +15,9 @@ import AdminPage from "@/components/templates/NotPublishedPage";
 async function notPublished() {
   await connectDB();
   const session = await getServerSession(authOptions);
-  if (!session) redirect("/");
 
   const user = await Boss.findOne({ email: session.user.email });
   if (user.role !== "ADMIN") redirect("/dashboard");
- 
 
   const profiles = await Profile.find({ published: false });
 

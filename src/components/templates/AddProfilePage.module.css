@@ -12,6 +12,11 @@
   border-radius: 7px;
   margin-bottom: 15px;
 }
+.change {
+  color: var(--color-fourth);
+  cursor: pointer;
+  width: fit-content;
+}
 .select {
   width: 300px;
 }
@@ -25,7 +30,7 @@
   outline: none;
   padding: 5px;
   cursor: pointer;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
 }
 .container button:hover {
   background: var(--color-first);

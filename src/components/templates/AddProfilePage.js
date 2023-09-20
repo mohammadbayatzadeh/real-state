@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import axios from "axios";
 import Select from "react-select";
 
@@ -19,10 +19,11 @@ import { cities } from "@/constants/cities";
 function AddProfilePage({ data }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [change, setChange] = useState(false);
   const [profileData, setProfileData] = useState({
     title: "",
     description: "",
-    city: "tehran",
+    city: "تهران",
     location: "",
     phone: "",
     price: 0,
@@ -32,7 +33,7 @@ function AddProfilePage({ data }) {
     rules: [],
     amenities: [],
   });
-  useEffect(() => {
+  useLayoutEffect(() => {
     data && setProfileData(data);
   }, []);
 
@@ -75,15 +76,26 @@ function AddProfilePage({ data }) {
         setProfileData={setProfileData}
         textArea={true}
       />
-      <p>شهر:</p>
-      <Select
-        defaultValue={profileData.city}
-        onChange={(value) =>
-          setProfileData({ ...profileData, city: value.value })
-        }
-        options={cities}
-        className={styles.select}
-      />
+      <p>شهر کنونی : {profileData.city}</p>
+      {!change && (
+        <p className={styles.change} onClick={() => setChange(true)}>
+          برای تغییر کلیک کنید
+        </p>
+      )}
+      {change && (
+        <>
+          <p>شهر جدید: </p>
+          <Select
+            value={profileData.city}
+            onChange={(value) => {
+              setProfileData({ ...profileData, city: value.value });
+              setChange(false);
+            }}
+            options={cities}
+            className={styles.select}
+          />
+        </>
+      )}
       <TextInput
         title={"موقعیت مکانی"}
         name={"location"}

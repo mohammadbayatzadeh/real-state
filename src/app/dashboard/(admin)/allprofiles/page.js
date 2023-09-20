@@ -14,7 +14,6 @@ import Profile from "@/models/Profile";
 async function allProfiles() {
   await connectDB();
   const session = await getServerSession(authOptions);
-  if (!session) redirect("/");
 
   const user = await Boss.findOne({ email: session.user.email });
   if (user.role !== "ADMIN") redirect("/dashboard");

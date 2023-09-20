@@ -7,7 +7,7 @@ import styles from "./ProfileDetailsPage.module.css";
 import { SiHomebridge } from "react-icons/si";
 import { AiOutlinePhone } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { BiCalendarCheck } from "react-icons/bi";
+import { BiCalendarCheck, BiSolidCity } from "react-icons/bi";
 
 import { VscCalendar } from "react-icons/vsc";
 
@@ -27,6 +27,7 @@ function ProfileDetailsPage({ profile }) {
     title,
     location,
     createdAt,
+    city,
     description,
     amenities,
     rules,
@@ -41,6 +42,10 @@ function ProfileDetailsPage({ profile }) {
     <div className={styles.container}>
       <div className={styles.main}>
         <h1>{title}</h1>
+        <div className={styles.location}>
+        <BiSolidCity />
+          {city}
+        </div>
         <div className={styles.location}>
           <HiOutlineLocationMarker />
           {location}

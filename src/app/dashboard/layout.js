@@ -18,11 +18,9 @@ export const metadata = {
 async function DashboardLayout({ children }) {
   await connectDB();
   const session = await getServerSession(authOptions);
-  if (!session) redirect("/login");
+  const user = await Boss.findOne({ email: session?.user?.email });
 
-  const user = await Boss.findOne({ email: session.user.email });
-
-  if (!!user) redirect("/login");
+  if (!session || !user) redirect("/login");
 
   return (
     <DashboardSideBar email={session.user.email} role={user.role}>
