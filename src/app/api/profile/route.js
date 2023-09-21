@@ -108,6 +108,7 @@ export async function PATCH(req) {
       description,
       location,
       phone,
+      city,
       price,
       realState,
       contructionDate,
@@ -141,6 +142,7 @@ export async function PATCH(req) {
       !price ||
       !realState ||
       !contructionDate ||
+      !city ||
       !category
     ) {
       return NextResponse.json(
@@ -174,6 +176,7 @@ export async function PATCH(req) {
     profile.amenities = amenities;
     profile.rules = rules;
     profile.category = category;
+    profile.city = city;
     await profile.save();
 
     return NextResponse.json(
