@@ -11,13 +11,13 @@ import { HiLocationMarker } from "react-icons/hi";
 //functions
 import { sp } from "@/utils/functions";
 
-function Card({ data: { _id, category, title, price, location } }) {
+function Card({ data: { _id, category, title,city, price, location } }) {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>{icons[category]}</div>
       <div className={styles.title}> {title}</div>
       <div className={styles.location}>
-        <HiLocationMarker /> {location}
+        <HiLocationMarker />{city}, {location}
       </div>
       <div className={styles.price}> {sp(price)} تومان</div>
       <Link href={`/residentials/${_id}`} className={styles.row}>
