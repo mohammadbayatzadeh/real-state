@@ -21,6 +21,10 @@
 .buttons {
   display: flex;
 }
+.buttons ul {
+  display: flex;
+  align-items: center;
+}
 .buttons p {
   animation: vibrate .5s ease infinite alternate;
 }

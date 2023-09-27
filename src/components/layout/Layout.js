@@ -7,11 +7,11 @@ import styles from "./Layout.module.css";
 
 function Layout({ children }) {
   return (
-    <>
+    <div className={styles.container }>
       <Header />
       <div className={styles.body}> {children}</div>
       <Footer />
-    </>
+    </div>
   );
 }
 

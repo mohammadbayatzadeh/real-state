@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 //icons
 import { VscSignIn, VscSignOut, VscSymbolProperty } from "react-icons/vsc";
+import { IoDocumentsOutline } from "react-icons/io5";
 import { GiArchiveRegister } from "react-icons/gi";
 
 //styles
@@ -22,13 +23,16 @@ function Header() {
   };
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.buttons}>
         <ul>
           <li>
             <Link href="/">صفحه اصلی</Link>
           </li>
           <li>
-            <Link href="/residentials">آگهی ها</Link>
+            <Link href="/residentials" className={styles.button}>
+              <IoDocumentsOutline />
+              <span>آگهی ها</span>
+            </Link>
           </li>
         </ul>
       </div>
