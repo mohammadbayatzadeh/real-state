@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Card from "../elements/Card";
+import Card from "../../elements/Card";
 import styles from "./ResidentialsPage.module.css";
 import { categories } from "@/constants/categories";
 

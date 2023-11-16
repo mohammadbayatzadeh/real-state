@@ -1,5 +1,5 @@
 //templates
-import ResidentialsPage from "@/components/templates/ResidentialsPage";
+import ResidentialsPage from "@/components/templates/landing/ResidentialsPage";
 
 //models
 import Profile from "@/models/Profile";
@@ -16,7 +16,7 @@ async function Residentials({ searchParams: { category, city } }) {
       : city
       ? data.filter((item) => item.city === city)
       : data;
-      
+
   return <ResidentialsPage data={FilteredData} />;
 }
 

@@ -1,4 +1,4 @@
-import ProfileDetailsPage from "@/components/templates/ProfileDetailsPage";
+import ProfileDetailsPage from "@/components/templates/dashboard/ProfileDetailsPage";
 import Profile from "@/models/Profile";
 import connectDB from "@/utils/connectDB";
 

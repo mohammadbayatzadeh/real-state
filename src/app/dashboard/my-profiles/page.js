@@ -8,7 +8,7 @@ import connectDB from "@/utils/connectDB";
 import Boss from "@/models/Boss";
 
 //templates
-import MyProfilesPage from "@/components/templates/My-ProfilesPage";
+import MyProfilesPage from "@/components/templates/dashboard/My-ProfilesPage";
 
 async function MyProfiles() {
   await connectDB();

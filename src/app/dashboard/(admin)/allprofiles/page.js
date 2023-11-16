@@ -2,7 +2,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
 //templates
-import AllProfilesPage from "@/components/templates/AllProfilesPage";
+import AllProfilesPage from "@/components/templates/dashboard/AllProfilesPage";
 
 //functions
 import connectDB from "@/utils/connectDB";

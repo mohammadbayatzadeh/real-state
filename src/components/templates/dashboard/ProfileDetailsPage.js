@@ -15,8 +15,8 @@ import { VscCalendar } from "react-icons/vsc";
 import { e2p, sp } from "@/utils/functions";
 
 //components
-import ShareButton from "../elements/ShareButton";
-import ItemList from "../elements/ItemList";
+import ShareButton from "../../elements/ShareButton";
+import ItemList from "../../elements/ItemList";
 import { icons } from "@/constants/icons";
 
 //constants
@@ -43,7 +43,7 @@ function ProfileDetailsPage({ profile }) {
       <div className={styles.main}>
         <h1>{title}</h1>
         <div className={styles.location}>
-        <BiSolidCity />
+          <BiSolidCity />
           {city}
         </div>
         <div className={styles.location}>

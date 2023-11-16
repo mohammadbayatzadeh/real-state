@@ -10,7 +10,7 @@ import Profile from "@/models/Profile";
 import Boss from "@/models/Boss";
 
 //templates
-import AdminPage from "@/components/templates/NotPublishedPage";
+import AdminPage from "@/components/templates/dashboard/NotPublishedPage";
 
 async function notPublished() {
   await connectDB();

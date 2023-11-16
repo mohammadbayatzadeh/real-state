@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./HomePage.module.css";
 
 //components
-import CategoryCard from "../modules/CategoryCard";
+import CategoryCard from "../../modules/CategoryCard";
 
 //constants
 import { cities } from "@/constants/cities";

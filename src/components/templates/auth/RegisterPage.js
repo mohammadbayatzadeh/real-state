@@ -6,8 +6,8 @@ import Link from "next/link";
 import axios from "axios";
 
 //components
-import Toast from "../elements/Toast";
-import Loading from "../elements/Loading";
+import Toast from "../../elements/Toast";
+import Loading from "../../elements/Loading";
 
 //styles
 import styles from "./AuthPage.module.css";

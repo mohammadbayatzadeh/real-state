@@ -4,12 +4,12 @@ import axios from "axios";
 import Select from "react-select";
 
 //compoents
-import TextInput from "../modules/TextInput";
-import RadioList from "../modules/RadioList";
-import ListInput from "../modules/ListInput";
-import CustumDatePicker from "../elements/CustumDatePicker";
-import Toast from "../elements/Toast";
-import Loading from "../elements/Loading";
+import TextInput from "../../modules/TextInput";
+import RadioList from "../../modules/RadioList";
+import ListInput from "../../modules/ListInput";
+import CustumDatePicker from "../../elements/CustumDatePicker";
+import Toast from "../../elements/Toast";
+import Loading from "../../elements/Loading";
 
 //styles
 import styles from "./AddProfilePage.module.css";

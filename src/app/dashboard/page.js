@@ -5,7 +5,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 import connectDB from "@/utils/connectDB";
 
 //tmeplates
-import DashboardPage from "@/components/templates/DashboardPage";
+import DashboardPage from "@/components/templates/dashboard/DashboardPage";
 
 //models
 import Boss from "@/models/Boss";
