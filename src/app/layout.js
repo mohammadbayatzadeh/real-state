@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 //providers
 import NextAuthProvider from "@/providers/NextAuthProvider";
 
+//progressbar
 import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
@@ -26,18 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className={Yekan.className}>
         <NextAuthProvider>
-          <NextTopLoader
-            color="#465293"
-            initialPosition={0.08}
-            crawlSpeed={200}
-            height={5}
-            crawl={true}
-            showSpinner={true}
-            easing="ease"
-            speed={200}
-            shadow="0 0 10px #2299DD,0 0 5px #2299DD"
-            zIndex={1600}
-          />
+          <NextTopLoader color="#465293" shadow="none" />
           <ToastContainer />
           <Layout>{children}</Layout>
         </NextAuthProvider>
