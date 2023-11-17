@@ -25,7 +25,7 @@ export const authOptions = {
           throw new Error("لطفا اطلاعات را کامل وارد کنید");
 
         const boss = await Boss.findOne({ email });
-        if (!boss) throw new Error("ابتدا حسال کاربری ایجاد کنید");
+        if (!boss) throw new Error("ابتدا حساب کاربری ایجاد کنید");
 
         const isValid = await comparePassword(password, boss.password);
         if (!isValid) throw new Error("ایمیل یا رمزعبور اشتباه است");
