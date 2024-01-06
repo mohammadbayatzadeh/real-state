@@ -1,4 +1,4 @@
-import React from "react";
+//styles
 import styles from "./RadioItem.module.css";
 
 function RadioItem({ profileData, setProfileData, label, name, category }) {

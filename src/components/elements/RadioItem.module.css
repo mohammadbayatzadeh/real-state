@@ -28,7 +28,6 @@
 }
 .button input:checked ~ .mark span:last-child {
   width: 5px;
-
   transform: rotate(45deg) translate(3px, 0px);
 }
 
