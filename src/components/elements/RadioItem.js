@@ -7,14 +7,14 @@ function RadioItem({ profileData, setProfileData, label, name, category }) {
     setProfileData({ ...profileData, [name]: value });
   };
   return (
-    <label htmlFor="villa" className={styles.button}>
-      ویلا
+    <label htmlFor={name} className={styles.button}>
+      {label}
       <input
         type="radio"
         name="category"
-        value="villa"
-        id="villa"
-        checked={category === "villa"}
+        value={name}
+        id={name}
+        checked={category === name}
         onChange={changeHandler}
       />
       <div className={styles.mark}>
