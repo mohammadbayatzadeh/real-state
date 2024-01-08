@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-//components
+//elements
 import Toast from "../../elements/Toast";
 import Loading from "../../elements/Loading";
+import TextInput from "@/components/modules/TextInput";
 
 //styles
 import styles from "./AuthPage.module.css";
@@ -18,19 +19,12 @@ function LoginPage() {
   const [form, setForm] = useState({
     email: "",
     password: "",
-    configPassword: "",
+    confirm_password: "",
   });
   const [loading, setLoading] = useState(false);
-
-  const changeHandler = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const submit = async () => {
-    if (form.password !== form.configPassword) {
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (form.password !== form.confirm_password) {
       return Toast("پسورد ها مطابقت ندارند!", "error");
     }
     setLoading(true);
@@ -50,34 +44,27 @@ function LoginPage() {
   };
 
   return (
-    <div className={styles.form}>
+    <form className={styles.form} onSubmit={submitHandler}>
       <h3>فرم ثبت نام</h3>
-      <label>ایمیل:</label>
-      <input
-        value={form.email}
-        name="email"
-        type="text"
-        onChange={(e) => changeHandler(e)}
-      />
-      <label>رمز عبور:</label>
-      <input
-        value={form.password}
+      <TextInput form={form} setForm={setForm} name="email" label="ایمیل" />
+      <TextInput
+        form={form}
+        setForm={setForm}
         name="password"
-        type="password"
-        onChange={(e) => changeHandler(e)}
+        label="رمز عبور"
       />
-      <label>تایید رمز عبور:</label>
-      <input
-        value={form.configPassword}
-        name="configPassword"
-        type="password"
-        onChange={(e) => changeHandler(e)}
+      <TextInput
+        form={form}
+        setForm={setForm}
+        name="confirm_password"
+        label="تایید رمزعبور"
       />
-      {loading ? <Loading /> : <button onClick={submit}>ثبت نام </button>}
+
+      {loading ? <Loading /> : <button type="submit">ثبت نام </button>}
       <p>
         آیا حساب دارید؟ <Link href="/login">ورود</Link>
       </p>
-    </div>
+    </form>
   );
 }
 

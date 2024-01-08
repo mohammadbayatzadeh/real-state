@@ -24,7 +24,7 @@ function TextInput({ label, name, form, setForm, textArea = false }) {
           name={name}
           value={form[name]}
           onChange={changeHandler}
-          type={name}
+          type={name.includes("password") ? "password" : "text"}
         />
       )}
     </div>
