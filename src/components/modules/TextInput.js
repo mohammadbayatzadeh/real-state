@@ -4,33 +4,27 @@ import { p2e } from "@/utils/functions";
 //styles
 import styles from "./TextInput.module.css";
 
-function TextInput({
-  title,
-  name,
-  profileData,
-  setProfileData,
-  textArea = false,
-}) {
+function TextInput({ label, name, form, setForm, textArea = false }) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    setProfileData({ ...profileData, [name]: p2e(value) });
+    setForm({ ...form, [name]: p2e(value) });
   };
   return (
     <div className={styles.input}>
-      <p>{title}:</p>
+      <label>{label}:</label>
       {textArea ? (
         <textarea
           name={name}
-          value={profileData[name]}
+          value={form[name]}
           onChange={changeHandler}
           type="text"
         />
       ) : (
         <input
           name={name}
-          value={profileData[name]}
+          value={form[name]}
           onChange={changeHandler}
-          type="text"
+          type={name}
         />
       )}
     </div>

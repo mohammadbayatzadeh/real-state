@@ -13,6 +13,7 @@ import Loading from "../../elements/Loading";
 
 //styles
 import styles from "./AuthPage.module.css";
+import TextInput from "@/components/modules/TextInput";
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -30,7 +31,8 @@ function LoginPage() {
     });
   };
 
-  const submit = async () => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
     setLoading(true);
     const res = await signIn("credentials", {
       email: form.email,
@@ -47,27 +49,20 @@ function LoginPage() {
   };
 
   return (
-    <div className={styles.form}>
+    <form className={styles.form} onSubmit={submitHandler}>
       <h3>فرم ورود</h3>
-      <label>ایمیل:</label>
-      <input
-        value={form.email}
-        name="email"
-        type="text"
-        onChange={(e) => changeHandler(e)}
-      />
-      <label>رمز عبور:</label>
-      <input
-        value={form.password}
+      <TextInput form={form} setForm={setForm} name="email" label="ایمیل" />
+      <TextInput
+        form={form}
+        setForm={setForm}
         name="password"
-        type="password"
-        onChange={(e) => changeHandler(e)}
+        label="رمز عبور"
       />
-      {loading ? <Loading /> : <button onClick={submit}>ورود</button>}
+      {loading ? <Loading /> : <button type="submit">ورود</button>}
       <p>
         آیا حساب ندارید؟ <Link href="/register">ثبت نام</Link>
       </p>
-    </div>
+    </form>
   );
 }
 
