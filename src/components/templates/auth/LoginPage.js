@@ -1,42 +1,34 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 //functions
 import { signIn } from "next-auth/react";
 
-//components
+//elements
 import Toast from "../../elements/Toast";
 import Loading from "../../elements/Loading";
+import TextInput from "@/components/modules/TextInput";
 
 //styles
 import styles from "./AuthPage.module.css";
-import TextInput from "@/components/modules/TextInput";
 
 function LoginPage() {
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
-
-  const changeHandler = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     const res = await signIn("credentials", {
-      email: form.email,
-      password: form.password,
+      ...form,
       redirect: false,
     });
     setLoading(false);
