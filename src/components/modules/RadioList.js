@@ -1,5 +1,7 @@
 //styles
 import RadioItem from "../elements/RadioItem";
+
+//styles
 import styles from "./RadioList.module.css";
 
 function RadioList({ profileData, setProfileData }) {

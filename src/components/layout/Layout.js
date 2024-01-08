@@ -1,4 +1,5 @@
 "use client";
+
 //components
 import Header from "./Header";
 import Footer from "./Footer";

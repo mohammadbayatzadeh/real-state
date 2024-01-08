@@ -22,14 +22,14 @@ function TextInput({
         <textarea
           name={name}
           value={profileData[name]}
-          onChange={(e) => changeHandler(e)}
+          onChange={changeHandler}
           type="text"
         />
       ) : (
         <input
           name={name}
           value={profileData[name]}
-          onChange={(e) => changeHandler(e)}
+          onChange={changeHandler}
           type="text"
         />
       )}
