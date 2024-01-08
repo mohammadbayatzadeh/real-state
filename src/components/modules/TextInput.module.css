@@ -1,6 +1,6 @@
 .input input,
 .input textarea {
-  border: 2px solid var(--color-dark);
+  border: 2px solid var(--color-fifth);
   background: none;
   outline: none;
   padding: 5px;
