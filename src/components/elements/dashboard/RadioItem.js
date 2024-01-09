@@ -1,10 +1,10 @@
 //styles
 import styles from "./RadioItem.module.css";
 
-function RadioItem({ profileData, setProfileData, label, name, category }) {
+function RadioItem({ form, setForm, label, name, category }) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    setProfileData({ ...profileData, [name]: value });
+    setForm({ ...form, [name]: value });
   };
   return (
     <label htmlFor={name} className={styles.button}>
