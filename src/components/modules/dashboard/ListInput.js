@@ -4,28 +4,28 @@ import styles from "./ListInput.module.css";
 //icons
 import { VscAdd } from "react-icons/vsc";
 
-function ListInput({ type, title, profileData, setProfileData }) {
+function ListInput({ type, title, form, setForm }) {
   const addhandler = () => {
-    setProfileData({ ...profileData, [type]: [...profileData[type], ""] });
+    setForm({ ...form, [type]: [...form[type], ""] });
   };
 
   const deleteHandler = (index) => {
-    const list = [...profileData[type]];
+    const list = [...form[type]];
     list.splice(index, 1);
-    setProfileData({ ...profileData, [type]: list });
+    setForm({ ...form, [type]: list });
   };
 
   const changeHandler = (e, index) => {
     const { value } = e.target;
-    const list = [...profileData[type]];
+    const list = [...form[type]];
     list[index] = value;
-    setProfileData({ ...profileData, [type]: list });
+    setForm({ ...form, [type]: list });
   };
-  
+
   return (
     <div className={styles.container}>
       <p>{title}</p>
-      {profileData[type].map((i, index) => (
+      {form[type].map((i, index) => (
         <div className={styles.item} key={index}>
           <input value={i} onChange={(e) => changeHandler(e, index)} />
           <button onClick={() => deleteHandler(index)}>حذف</button>

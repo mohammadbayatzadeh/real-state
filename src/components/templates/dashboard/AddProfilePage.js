@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useLayoutEffect } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import Select from "react-select";
 
-//compoents
+//elements
 import TextInput from "../../elements/general/TextInput";
 import RadioList from "../../modules/dashboard/RadioList";
 import ListInput from "../../modules/dashboard/ListInput";
@@ -13,7 +14,8 @@ import Loading from "../../elements/general/Loading";
 
 //styles
 import styles from "./AddProfilePage.module.css";
-import { useRouter } from "next/navigation";
+
+//constants
 import { cities } from "@/constants/cities";
 
 function AddProfilePage({ data }) {
@@ -33,6 +35,7 @@ function AddProfilePage({ data }) {
     rules: [],
     amenities: [],
   });
+
   useLayoutEffect(() => {
     data && setForm(data);
   }, []);
@@ -62,7 +65,7 @@ function AddProfilePage({ data }) {
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>{data ? "ویرایش آگهی" : "ثبت آگهی"}</h3>
-      <form className={styles.form}>
+      <div className={styles.form}>
         <TextInput
           label={"عنوان"}
           name={"title"}
@@ -123,14 +126,14 @@ function AddProfilePage({ data }) {
           setForm={setForm}
         />
         <RadioList form={form} setForm={setForm} />
-        {/* 
-      <ListInput
-        type="amenities"
-        title="امکانات رفاهی"
-        form={form}
-        setForm={setForm}
-      />
-      <ListInput type="rules" title="قوانین" form={form} setForm={setForm} /> */}
+
+        <ListInput
+          type="amenities"
+          title="امکانات رفاهی"
+          form={form}
+          setForm={setForm}
+        />
+        <ListInput type="rules" title="قوانین" form={form} setForm={setForm} />
         <CustumDatePicker form={form} setForm={setForm} />
         {loading ? (
           <Loading />
@@ -142,7 +145,7 @@ function AddProfilePage({ data }) {
             {data ? "ویرایش آگهی" : "ثبت آگهی"}
           </button>
         )}
-      </form>
+      </div>
     </div>
   );
 }
