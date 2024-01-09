@@ -20,7 +20,8 @@ async function DashboardLayout({ children }) {
   const session = await getServerSession(authOptions);
   const user = await Boss.findOne({ email: session?.user?.email });
 
-  if (!session || !user) redirect("/login");
+  if (!session || !user) redirect("auth/login");
+
   return (
     <DashboardSideBar session={session} user={JSON.parse(JSON.stringify(user))}>
       {children}

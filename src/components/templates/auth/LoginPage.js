@@ -36,7 +36,7 @@ function LoginPage() {
       Toast(res.error, "error");
     } else {
       [Toast("ورود موفقیت آمیز بود", "success")];
-      router.push("/");
+      router.push("/dashboard");
     }
   };
 

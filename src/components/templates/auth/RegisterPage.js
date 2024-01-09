@@ -35,7 +35,7 @@ function LoginPage() {
       })
       .then((res) => {
         Toast(res.data.message, "success");
-        router.push("/login");
+        router.push("/auth/login");
       })
       .catch((err) => {
         Toast(err.response.data.error, "error");

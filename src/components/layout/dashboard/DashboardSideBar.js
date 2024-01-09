@@ -17,6 +17,7 @@ function DashboardSideBar({ children, session, user }) {
   const {
     user: { email },
   } = session;
+
   return (
     <div className={styles.container}>
       <aside className={styles.aside}>
