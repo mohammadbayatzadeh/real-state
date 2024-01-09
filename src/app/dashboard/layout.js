@@ -14,16 +14,14 @@ import Boss from "@/models/Boss";
 export const metadata = {
   title: "پنل ادمین سامانه ملک",
 };
-
 async function DashboardLayout({ children }) {
   await connectDB();
   const session = await getServerSession(authOptions);
   const user = await Boss.findOne({ email: session?.user?.email });
 
   if (!session || !user) redirect("/login");
-
   return (
-    <DashboardSideBar email={session.user.email} role={user.role}>
+    <DashboardSideBar session={session} user={user}>
       {children}
     </DashboardSideBar>
   );

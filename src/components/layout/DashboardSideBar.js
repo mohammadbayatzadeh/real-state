@@ -1,4 +1,5 @@
 "use client";
+import { createContext } from "react";
 import Link from "next/link";
 
 //styles
@@ -10,7 +11,12 @@ import { VscAccount } from "react-icons/vsc";
 //comps
 import LogoutButton from "../elements/LogoutButton";
 
-function DashboardSideBar({ children, email, role }) {
+export const UserContext = createContext();
+function DashboardSideBar({ children, session, user }) {
+  const { role } = user;
+  const {
+    user: { email },
+  } = session;
   return (
     <div className={styles.container}>
       <aside className={styles.aside}>
@@ -29,7 +35,11 @@ function DashboardSideBar({ children, email, role }) {
         )}
         <LogoutButton />
       </aside>
-      <main>{children}</main>
+      <main>
+        <UserContext.Provider value={{ session, user }}>
+          {children}
+        </UserContext.Provider>
+      </main>
     </div>
   );
 }

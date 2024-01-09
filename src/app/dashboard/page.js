@@ -1,21 +1,15 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+"use client";
+import { useContext } from "react";
 
-//functions
-import connectDB from "@/utils/connectDB";
+//contexts
+import { UserContext } from "@/components/layout/DashboardSideBar";
 
 //tmeplates
 import DashboardPage from "@/components/templates/dashboard/DashboardPage";
 
-//models
-import Boss from "@/models/Boss";
-
 async function Dahboard() {
-  await connectDB();
-  const session = await getServerSession(authOptions);
-  const user = await Boss.findOne({ email: session.user.email });
-
-  return <DashboardPage date={user.createdAt} />;
+  const data = useContext(UserContext);
+  return <DashboardPage date={data.user.createdAt} />;
 }
 
 export default Dahboard;
