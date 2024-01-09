@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import axios from "axios";
 import Select from "react-select";
 
@@ -20,7 +20,7 @@ function AddProfilePage({ data }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [change, setChange] = useState(false);
-  const [profileData, setProfileData] = useState({
+  const [form, setForm] = useState({
     title: "",
     description: "",
     city: "تهران",
@@ -34,13 +34,13 @@ function AddProfilePage({ data }) {
     amenities: [],
   });
   useLayoutEffect(() => {
-    data && setProfileData(data);
+    data && setForm(data);
   }, []);
 
   const editHandler = async () => {
     setLoading(true);
     axios
-      .patch("/api/profile", { _id: data._id, ...profileData })
+      .patch("/api/profile", { _id: data._id, ...form })
       .then(
         (res) => (Toast(res.data.message, "success"), router.push("/dashboard"))
       )
@@ -51,7 +51,7 @@ function AddProfilePage({ data }) {
   const submitHandler = async () => {
     setLoading(true);
     axios
-      .post("/api/profile", { ...profileData })
+      .post("/api/profile", { ...form })
       .then(
         (res) => (Toast(res.data.message, "success"), router.push("/dashboard"))
       )
@@ -62,93 +62,87 @@ function AddProfilePage({ data }) {
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>{data ? "ویرایش آگهی" : "ثبت آگهی"}</h3>
-      <TextInput
-        title={"عنوان"}
-        name={"title"}
-        profileData={profileData}
-        setProfileData={setProfileData}
-      />
+      <form className={styles.form}>
+        <TextInput
+          label={"عنوان"}
+          name={"title"}
+          form={form}
+          setForm={setForm}
+        />
 
-      <TextInput
-        title={"توضیحات"}
-        name={"description"}
-        profileData={profileData}
-        setProfileData={setProfileData}
-        textArea={true}
-      />
-      <p>شهر کنونی : {profileData.city}</p>
-      {!change && (
-        <p className={styles.change} onClick={() => setChange(true)}>
-          برای تغییر کلیک کنید
-        </p>
-      )}
-      {change && (
-        <>
-          <p>شهر جدید: </p>
-          <Select
-            value={profileData.city}
-            onChange={(value) => {
-              setProfileData({ ...profileData, city: value.value });
-              setChange(false);
-            }}
-            options={cities}
-            className={styles.select}
-          />
-        </>
-      )}
-      <TextInput
-        title={"موقعیت مکانی"}
-        name={"location"}
-        profileData={profileData}
-        setProfileData={setProfileData}
-        textArea={true}
-      />
-      <TextInput
-        title={"بنگاه"}
-        name={"realState"}
-        profileData={profileData}
-        setProfileData={setProfileData}
-      />
-      <TextInput
-        title={"قیمت"}
-        name={"price"}
-        profileData={profileData}
-        setProfileData={setProfileData}
-      />
-      <TextInput
-        title={"شماره تلفن"}
-        name={"phone"}
-        profileData={profileData}
-        setProfileData={setProfileData}
-      />
-      <RadioList profileData={profileData} setProfileData={setProfileData} />
-
+        <TextInput
+          label={"توضیحات"}
+          name={"description"}
+          form={form}
+          setForm={setForm}
+          textArea={true}
+        />
+        <p>شهر کنونی : {form.city}</p>
+        {!change && (
+          <p className={styles.change} onClick={() => setChange(true)}>
+            برای تغییر کلیک کنید
+          </p>
+        )}
+        {change && (
+          <>
+            <p>شهر جدید: </p>
+            <Select
+              value={form.city}
+              onChange={(value) => {
+                setForm({ ...form, city: value.value });
+                setChange(false);
+              }}
+              options={cities}
+              className={styles.select}
+            />
+          </>
+        )}
+        <TextInput
+          label={"موقعیت مکانی"}
+          name={"location"}
+          form={form}
+          setForm={setForm}
+          textArea={true}
+        />
+        <TextInput
+          label={"بنگاه"}
+          name={"realState"}
+          form={form}
+          setForm={setForm}
+        />
+        <TextInput
+          label={"قیمت"}
+          name={"price"}
+          form={form}
+          setForm={setForm}
+        />
+        <TextInput
+          label={"شماره تلفن"}
+          name={"phone"}
+          form={form}
+          setForm={setForm}
+        />
+        <RadioList form={form} setForm={setForm} />
+        {/* 
       <ListInput
         type="amenities"
         title="امکانات رفاهی"
-        profileData={profileData}
-        setProfileData={setProfileData}
+        form={form}
+        setForm={setForm}
       />
-      <ListInput
-        type="rules"
-        title="قوانین"
-        profileData={profileData}
-        setProfileData={setProfileData}
-      />
-      <CustumDatePicker
-        profileData={profileData}
-        setProfileData={setProfileData}
-      />
-      {loading ? (
-        <Loading />
-      ) : (
-        <button
-          className={styles.button}
-          onClick={data ? editHandler : submitHandler}
-        >
-          {data ? "ویرایش آگهی" : "ثبت آگهی"}
-        </button>
-      )}
+      <ListInput type="rules" title="قوانین" form={form} setForm={setForm} /> */}
+        <CustumDatePicker form={form} setForm={setForm} />
+        {loading ? (
+          <Loading />
+        ) : (
+          <button
+            className={styles.button}
+            onClick={data ? editHandler : submitHandler}
+          >
+            {data ? "ویرایش آگهی" : "ثبت آگهی"}
+          </button>
+        )}
+      </form>
     </div>
   );
 }

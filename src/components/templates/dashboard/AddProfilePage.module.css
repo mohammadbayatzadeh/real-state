@@ -3,6 +3,9 @@
   flex-direction: column;
   width: 100%;
 }
+.form{
+  width: 50%;
+}
 .container .title {
   width: 100%;
   padding: 10px;
@@ -36,4 +39,14 @@
   background: var(--color-first);
   color: var(--color-light);
   border: 2px solid var(--color-light);
+}
+
+@media (max-width:1000px){
+  .form{
+    width: 100%;
+  }
+  .form textarea {
+    width: 100% !important;
+  }
+  
 }

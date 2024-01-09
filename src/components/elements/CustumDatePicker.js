@@ -4,10 +4,10 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import InputIcon from "react-multi-date-picker/components/input_icon";
 
-function CustumDatePicker({ profileData, setProfileData }) {
+function CustumDatePicker({ form, setForm }) {
   const changeHandler = (e) => {
     const date = new Date(e);
-    setProfileData({ ...profileData, contructionDate: date });
+    setForm({ ...form, contructionDate: date });
   };
 
   return (
@@ -17,7 +17,7 @@ function CustumDatePicker({ profileData, setProfileData }) {
         calendar={persian}
         render={<InputIcon />}
         locale={persian_fa}
-        value={profileData.contructionDate}
+        value={form.contructionDate}
         onChange={changeHandler}
         onlyMonthPicker
         calendarPosition="bottom-right"

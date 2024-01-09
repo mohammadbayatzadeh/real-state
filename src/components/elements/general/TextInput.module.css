@@ -8,6 +8,7 @@
   margin-bottom: 20px;
   resize: none;
   transition: 0.5s all ease;
+  display: flex;
 }
 .input input {
   width: 100%;
