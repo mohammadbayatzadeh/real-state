@@ -53,14 +53,14 @@ function Header() {
         )}
         {status === "unauthenticated" && (
           <>
-            {pathname !== "/login" && (
-              <Link href="/login" className={styles.button}>
+            {pathname !== "/auth/login" && (
+              <Link href="/auth/login" className={styles.button}>
                 <VscSignIn />
                 <span>ورود</span>
               </Link>
             )}
-            {pathname !== "/register" && (
-              <Link href="/register" className={styles.button}>
+            {pathname !== "/auth/register" && (
+              <Link href="/auth/register" className={styles.button}>
                 <GiArchiveRegister />
                 <span>ثبت نام</span>
               </Link>

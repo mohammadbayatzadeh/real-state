@@ -1,3 +1,4 @@
+//template
 import HomePage from "@/components/templates/landing/HomePage";
 
 function page() {
