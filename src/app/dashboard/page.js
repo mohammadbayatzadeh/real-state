@@ -2,14 +2,14 @@
 import { useContext } from "react";
 
 //contexts
-import { UserContext } from "@/components/layout/DashboardSideBar";
+import { UserContext } from "@/components/layout/dashboard/DashboardSideBar";
 
 //tmeplates
 import DashboardPage from "@/components/templates/dashboard/DashboardPage";
 
 async function Dahboard() {
-  const data = useContext(UserContext);
-  return <DashboardPage date={data.user.createdAt} />;
+  const { user } = useContext(UserContext);
+  return <DashboardPage date={user.createdAt} />;
 }
 
 export default Dahboard;

@@ -1,5 +1,5 @@
 //comps
-import DashboardCard from "../../modules/DashboardCard";
+import DashboardCard from "../../modules/dashboard/DashboardCard";
 
 //styles
 import styles from "./AllProfilesPage.module.css";

@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 
 //elements
 import Toast from "../../elements/Toast";
-import Loading from "../../elements/Loading";
-import TextInput from "@/components/modules/TextInput";
+import Loading from "../../elements/general/Loading";
+import TextInput from "@/components/elements/general/TextInput";
 
 //styles
 import styles from "./AuthPage.module.css";

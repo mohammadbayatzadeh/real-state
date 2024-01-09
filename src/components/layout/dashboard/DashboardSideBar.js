@@ -9,7 +9,7 @@ import styles from "./DashboardSideBar.module.css";
 import { VscAccount } from "react-icons/vsc";
 
 //comps
-import LogoutButton from "../elements/LogoutButton";
+import LogoutButton from "../../elements/general/LogoutButton";
 
 export const UserContext = createContext();
 function DashboardSideBar({ children, session, user }) {

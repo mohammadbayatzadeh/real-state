@@ -1,5 +1,5 @@
 //styles
-import RadioItem from "../elements/RadioItem";
+import RadioItem from "../../elements/dashboard/RadioItem";
 
 //styles
 import styles from "./RadioList.module.css";

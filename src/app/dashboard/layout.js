@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import connectDB from "@/utils/connectDB";
 
 //templates
-import DashboardSideBar from "@/components/layout/DashboardSideBar";
+import DashboardSideBar from "@/components/layout/dashboard/DashboardSideBar";
 
 //models
 import Boss from "@/models/Boss";
@@ -14,6 +14,7 @@ import Boss from "@/models/Boss";
 export const metadata = {
   title: "پنل ادمین سامانه ملک",
 };
+
 async function DashboardLayout({ children }) {
   await connectDB();
   const session = await getServerSession(authOptions);
@@ -21,7 +22,7 @@ async function DashboardLayout({ children }) {
 
   if (!session || !user) redirect("/login");
   return (
-    <DashboardSideBar session={session} user={user}>
+    <DashboardSideBar session={session} user={JSON.parse(JSON.stringify(user))}>
       {children}
     </DashboardSideBar>
   );

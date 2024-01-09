@@ -5,18 +5,18 @@ import { useRouter } from "next/navigation";
 import styles from "./DashboardCard.module.css";
 
 //components
-import Card from "../elements/Card";
+import Card from "../../elements/Card";
 
 //icons
 import axios from "axios";
 
 //comps
-import Toast from "../elements/Toast";
+import Toast from "../../elements/Toast";
 
 //icons
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-import { VscFoldUp ,VscFoldDown} from "react-icons/vsc";
+import { VscFoldUp, VscFoldDown } from "react-icons/vsc";
 
 function DashboardCard({ data, type }) {
   const router = useRouter();
@@ -31,9 +31,7 @@ function DashboardCard({ data, type }) {
   const publishHandler = async (published) => {
     axios
       .patch("/api/profile/publish/" + data._id, { published })
-      .then(
-        (res) => (Toast(res.data.message, "success"), router.refresh())
-      )
+      .then((res) => (Toast(res.data.message, "success"), router.refresh()))
       .catch((err) => Toast(err.response.data.error, "error"));
   };
 
@@ -49,7 +47,7 @@ function DashboardCard({ data, type }) {
           <>
             {data.published ? (
               <button onClick={() => publishHandler(false)}>
-                <VscFoldDown   /> پنهان
+                <VscFoldDown /> پنهان
               </button>
             ) : (
               <button onClick={() => publishHandler(true)}>

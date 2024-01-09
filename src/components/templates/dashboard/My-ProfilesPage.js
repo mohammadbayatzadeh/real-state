@@ -2,7 +2,7 @@
 import styles from "./My-ProfilesPage.module.css";
 
 //comps
-import DashboardCard from "../../modules/DashboardCard";
+import DashboardCard from "../../modules/dashboard/DashboardCard";
 function MyProfilesPage({ profiles }) {
   return (
     <div className={styles.container}>

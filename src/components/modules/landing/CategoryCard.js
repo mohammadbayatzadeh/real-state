@@ -4,7 +4,7 @@ import Image from "next/image";
 //styles
 import styles from "./CategoryCard.module.css";
 
-function CategoryCard({ name, title, link }) {
+function CategoryCard({ name, title }) {
   return (
     <Link
       className={styles.container}

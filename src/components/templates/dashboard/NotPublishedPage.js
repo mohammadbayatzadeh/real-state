@@ -1,4 +1,4 @@
-import DashboardCard from "../../modules/DashboardCard";
+import DashboardCard from "../../modules/dashboard/DashboardCard";
 import styles from "./NotPublishedPage.module.css";
 
 function NotPublishedPage({ profiles }) {

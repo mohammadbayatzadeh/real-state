@@ -1,8 +1,8 @@
 "use client";
 
 //components
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./landing/Header";
+import Footer from "./landing/Footer";
 
 //styles
 import styles from "./Layout.module.css";
