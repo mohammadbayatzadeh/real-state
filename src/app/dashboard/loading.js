@@ -1,5 +1,8 @@
+"use client";
+import Loading from "@/components/elements/general/Loading";
+
 function loading() {
-  return <div>loading</div>;
+  return <Loading />;
 }
 
 export default loading;
