@@ -1,7 +1,7 @@
 //styles
 import styles from "./RadioItem.module.css";
 
-function RadioItem({ form, setForm, label, name, category }) {
+function RadioItem({ form, setForm, label, name }) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -14,7 +14,7 @@ function RadioItem({ form, setForm, label, name, category }) {
         name="category"
         value={name}
         id={name}
-        checked={category === name}
+        checked={form.category === name}
         onChange={changeHandler}
       />
       <div className={styles.mark}>

@@ -1,44 +1,26 @@
-//styles
+//elements
 import RadioItem from "../../elements/dashboard/RadioItem";
+
+//constants
+import { categories } from "@/constants/categories";
 
 //styles
 import styles from "./RadioList.module.css";
 
 function RadioList({ form, setForm }) {
-  const { category } = form;
-
   return (
     <div className={styles.container}>
       <p>دسته بندی:</p>
       <div className={styles.main}>
-        <RadioItem
-          form={form}
-          setForm={setForm}
-          label="ویلا"
-          name="villa"
-          category={category}
-        />
-        <RadioItem
-          form={form}
-          setForm={setForm}
-          label="آپارتمان"
-          name="apartment"
-          category={category}
-        />
-        <RadioItem
-          form={form}
-          setForm={setForm}
-          label="مغازه"
-          name="store"
-          category={category}
-        />
-        <RadioItem
-          form={form}
-          setForm={setForm}
-          label="دفتر"
-          name="office"
-          category={category}
-        />
+        {categories.slice(1).map((item, index) => (
+          <RadioItem
+            key={index}
+            form={form}
+            setForm={setForm}
+            label={item.title}
+            name={item.route}
+          />
+        ))}
       </div>
     </div>
   );
