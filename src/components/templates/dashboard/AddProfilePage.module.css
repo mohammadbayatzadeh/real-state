@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
 }
-.form{
+.form {
   width: 50%;
 }
 .container .title {
@@ -15,14 +15,7 @@
   border-radius: 7px;
   margin-bottom: 15px;
 }
-.change {
-  color: var(--color-fourth);
-  cursor: pointer;
-  width: fit-content;
-}
-.select {
-  width: 300px;
-}
+
 .container button {
   background: none;
   border-radius: 10px;
@@ -41,12 +34,11 @@
   border: 2px solid var(--color-light);
 }
 
-@media (max-width:1000px){
-  .form{
+@media (max-width: 1000px) {
+  .form {
     width: 100%;
   }
   .form textarea {
     width: 100% !important;
   }
-  
 }

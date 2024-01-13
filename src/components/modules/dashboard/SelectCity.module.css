@@ -1,0 +1,8 @@
+.change {
+  color: var(--color-fourth);
+  cursor: pointer;
+  width: fit-content;
+}
+.select {
+  width: 300px;
+}
