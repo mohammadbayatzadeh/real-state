@@ -10,9 +10,11 @@ import Toast from "../../elements/Toast";
 import Loading from "../../elements/general/Loading";
 import TextInput from "@/components/elements/general/TextInput";
 
+//functions
+import { checkFill } from "@/utils/functions";
+
 //styles
 import styles from "./AuthPage.module.css";
-import { checkFill } from "@/utils/functions";
 
 function LoginPage() {
   const router = useRouter();

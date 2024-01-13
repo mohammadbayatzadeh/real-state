@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 //functions
 import { signIn } from "next-auth/react";
+import { checkFill } from "@/utils/functions";
 
 //elements
 import Toast from "../../elements/Toast";
@@ -26,6 +27,9 @@ function LoginPage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (!checkFill(form)) {
+      return Toast("لطفا تمام اطلاعات را وارد کنید", "error");
+    }
     setLoading(true);
     const res = await signIn("credentials", {
       ...form,
