@@ -36,10 +36,7 @@ function LoginPage() {
     }
     setLoading(true);
     await axios
-      .post("/api/auth/signup", {
-        email: form.email,
-        password: form.password,
-      })
+      .post("/api/auth/signup", form)
       .then((res) => {
         Toast(res.data.message, "success");
         router.push("/auth/login");
