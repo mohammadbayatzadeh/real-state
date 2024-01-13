@@ -6,7 +6,6 @@ import { cities } from "@/constants/cities";
 
 function SelectCity({ form, setForm }) {
   const [change, setChange] = useState(false);
-
   return (
     <div className={styles.container}>
       <p>شهر کنونی : {form.city}</p>
@@ -16,7 +15,7 @@ function SelectCity({ form, setForm }) {
         </p>
       )}
       {change && (
-        <>
+        <div className={styles.select}>
           <p>شهر جدید: </p>
           <Select
             value={form.city}
@@ -25,9 +24,8 @@ function SelectCity({ form, setForm }) {
               setChange(false);
             }}
             options={cities}
-            className={styles.select}
           />
-        </>
+        </div>
       )}
     </div>
   );

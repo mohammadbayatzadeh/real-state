@@ -9,17 +9,15 @@
   resize: none;
   transition: 0.5s all ease;
   display: flex;
-}
-.input input {
   width: 100%;
 }
+
 .input input:focus,
 .input textarea:focus {
   border: 2px solid var(--color-first);
 }
 .input textarea {
   height: 100px;
-  width: 400px;
 }
 .input label {
   margin-top: 20px;
