@@ -11,4 +11,10 @@ const sp = (number) => {
   return e2p(joinedNumber);
 };
 
-export { e2p, p2e, sp };
+const checkFill = (form) => {
+  for (let key in form) {
+    if (!form[key].trim()) return false;
+  }
+  return true;
+};
+export { e2p, p2e, sp, checkFill };

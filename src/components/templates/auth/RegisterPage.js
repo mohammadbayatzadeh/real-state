@@ -12,6 +12,7 @@ import TextInput from "@/components/elements/general/TextInput";
 
 //styles
 import styles from "./AuthPage.module.css";
+import { checkFill } from "@/utils/functions";
 
 function LoginPage() {
   const router = useRouter();
@@ -22,8 +23,12 @@ function LoginPage() {
     confirm_password: "",
   });
   const [loading, setLoading] = useState(false);
+
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (!checkFill(form)) {
+      return Toast("لطفا تمام اطلاعات را وارد کنید", "error");
+    }
     if (form.password !== form.confirm_password) {
       return Toast("پسورد ها مطابقت ندارند!", "error");
     }
