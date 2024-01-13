@@ -2,7 +2,6 @@
 import React, { useState, useLayoutEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import Select from "react-select";
 
 //elements
 import TextInput from "../../elements/general/TextInput";
@@ -11,17 +10,14 @@ import ListInput from "../../modules/dashboard/ListInput";
 import CustumDatePicker from "../../elements/CustumDatePicker";
 import Toast from "../../elements/Toast";
 import Loading from "../../elements/general/Loading";
+import SelectCity from "@/components/modules/dashboard/SelectCity";
 
 //styles
 import styles from "./AddProfilePage.module.css";
 
-//constants
-import { cities } from "@/constants/cities";
-
 function AddProfilePage({ data }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [change, setChange] = useState(false);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -80,26 +76,8 @@ function AddProfilePage({ data }) {
           setForm={setForm}
           textArea={true}
         />
-        <p>شهر کنونی : {form.city}</p>
-        {!change && (
-          <p className={styles.change} onClick={() => setChange(true)}>
-            برای تغییر کلیک کنید
-          </p>
-        )}
-        {change && (
-          <>
-            <p>شهر جدید: </p>
-            <Select
-              value={form.city}
-              onChange={(value) => {
-                setForm({ ...form, city: value.value });
-                setChange(false);
-              }}
-              options={cities}
-              className={styles.select}
-            />
-          </>
-        )}
+        <SelectCity form={form} setForm={setForm} />
+
         <TextInput
           label={"موقعیت مکانی"}
           name={"location"}
