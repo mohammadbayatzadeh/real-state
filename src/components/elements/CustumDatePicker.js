@@ -20,7 +20,6 @@ function CustumDatePicker({ form, setForm }) {
         value={form.contructionDate}
         onChange={changeHandler}
         onlyMonthPicker
-        calendarPosition="bottom-right"
       />
     </div>
   );
