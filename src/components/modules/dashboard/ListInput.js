@@ -24,7 +24,7 @@ function ListInput({ type, title, form, setForm }) {
 
   return (
     <div className={styles.container}>
-      <p>{title}</p>
+      <p>{title}:</p>
       {form[type].map((i, index) => (
         <div className={styles.item} key={index}>
           <input value={i} onChange={(e) => changeHandler(e, index)} />
