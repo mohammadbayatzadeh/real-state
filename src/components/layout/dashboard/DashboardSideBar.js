@@ -12,12 +12,11 @@ import { VscAccount } from "react-icons/vsc";
 import LogoutButton from "../../elements/general/LogoutButton";
 
 export const UserContext = createContext();
-function DashboardSideBar({ children, session, user }) {
+function DashboardSideBar({ children, session, user, profiles }) {
   const { role } = user;
   const {
     user: { email },
   } = session;
-
   return (
     <div className={styles.container}>
       <aside className={styles.aside}>
@@ -37,7 +36,7 @@ function DashboardSideBar({ children, session, user }) {
         <LogoutButton />
       </aside>
       <main>
-        <UserContext.Provider value={{ session, user }}>
+        <UserContext.Provider value={{ session, user, profiles }}>
           {children}
         </UserContext.Provider>
       </main>
