@@ -1,4 +1,5 @@
 //styles
+import ProfilesCounter from "@/components/elements/dashboard/ProfilesCounter";
 import styles from "./DashboardPage.module.css";
 
 function DashboardPage({ date }) {
@@ -10,6 +11,7 @@ function DashboardPage({ date }) {
         <p>تاریخ عضویت:</p>
         <span>{new Date(date).toLocaleDateString("fa-IR")}</span>
       </div>
+      <ProfilesCounter />
     </div>
   );
 }
