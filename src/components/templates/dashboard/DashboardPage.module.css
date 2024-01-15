@@ -3,12 +3,16 @@
   margin-bottom: 20px;
 }
 
-.createdAt {
+.data {
   display: flex;
+  flex-direction: column;
   background-color: var(--color-first);
   color: var(--color-light);
   width: fit-content;
   border-radius: 5px;
   margin-top: 20px;
   padding: 5px;
+}
+.row {
+  display: flex;
 }
