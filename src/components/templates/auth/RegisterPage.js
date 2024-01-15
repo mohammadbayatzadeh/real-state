@@ -66,7 +66,7 @@ function LoginPage() {
 
       {loading ? <Loading /> : <button type="submit">ثبت نام </button>}
       <p>
-        آیا حساب دارید؟ <Link href="/login">ورود</Link>
+        آیا حساب دارید؟ <Link href="/ auth/login">ورود</Link>
       </p>
     </form>
   );
