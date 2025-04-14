@@ -1,19 +1,8 @@
-import { toast } from "react-toastify";
+import { message } from "antd";
 
-//styles
-import "react-toastify/dist/ReactToastify.css";
-
-function Toast(text, type) {
-  toast[type](text, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored",
-  });
+function useToast() {
+  const [api, contextHolder] = message.useMessage();
+  return { contextHolder, api };
 }
 
-export default Toast;
+export default useToast;

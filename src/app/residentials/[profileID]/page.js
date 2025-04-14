@@ -1,10 +1,5 @@
-//template
 import ProfileDetailsPage from "@/components/templates/dashboard/ProfileDetailsPage";
-
-//models
 import Profile from "@/models/Profile";
-
-//functions
 import connectDB from "@/utils/connectDB";
 
 async function page({ params: { profileID } }) {

@@ -7,11 +7,13 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Toast from "../../elements/Toast";
 import Loading from "../../elements/general/Loading";
+import useToast from "../../elements/Toast";
 
 function LoginPage() {
   const [loading, setLoading] = useState(false);
+  const { api, contextHolder } = useToast();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -22,7 +24,7 @@ function LoginPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!checkFill(form)) {
-      return Toast("لطفا تمام اطلاعات را وارد کنید", "error");
+      return api.error("لطفا تمام اطلاعات را وارد کنید");
     }
     setLoading(true);
     const res = await signIn("credentials", {
@@ -31,9 +33,9 @@ function LoginPage() {
     });
     setLoading(false);
     if (res.error) {
-      Toast(res.error, "error");
+      api.error(res.error);
     } else {
-      [Toast("ورود موفقیت آمیز بود", "success")];
+      api.success("ورود موفقیت آمیز بود");
       router.push("/dashboard");
     }
   };
@@ -43,6 +45,7 @@ function LoginPage() {
       className="flex flex-col gap-2 items-center shadow-xl rounded-xl p-5 border border-first"
       onSubmit={submitHandler}
     >
+      {contextHolder}
       <h3>فرم ورود</h3>
       <TextInput form={form} setForm={setForm} name="email" label="ایمیل" />
       <TextInput
@@ -51,7 +54,13 @@ function LoginPage() {
         name="password"
         label="رمز عبور"
       />
-      {loading ? <Loading /> : <Button type="primary" className="w-full" onClick={submitHandler}>ورود</Button>}
+      {loading ? (
+        <Loading />
+      ) : (
+        <Button type="primary" className="w-full" onClick={submitHandler}>
+          ورود
+        </Button>
+      )}
       <p>
         آیا حساب ندارید؟ <Link href="/auth/register">ثبت نام</Link>
       </p>

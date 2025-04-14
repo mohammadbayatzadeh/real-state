@@ -3,7 +3,8 @@ import { Input } from "antd";
 
 function TextInput({ label, name, form, setForm, textArea = false }) {
   const changeHandler = (e) => {
-    const { name, value } = e.target;
+    const {  value } = e.target;
+    console.log({ name, value });
     setForm({ ...form, [name]: p2e(value) });
   };
   return (

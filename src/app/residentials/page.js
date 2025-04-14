@@ -1,10 +1,5 @@
-//templates
 import ResidentialsPage from "@/components/templates/landing/ResidentialsPage";
-
-//models
 import Profile from "@/models/Profile";
-
-//functions
 import connectDB from "@/utils/connectDB";
 
 async function Residentials({ searchParams: { category, city } }) {
