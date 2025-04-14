@@ -1,14 +1,9 @@
-"use client";
-
-//styles
-import styles from "./Footer.module.css";
-
 function Footer() {
   return (
-    <div className={styles.footer}>
+    <div className="bg-first rounded-xl p-5 w-full flex justify-between items-center mt-10 text-third gap-10">
       <div>
-        <h3>سامانه خرید و فروش ملک</h3>
-        <div className={styles.desc}>
+        <h3 className="font-[500]">سامانه خرید و فروش ملک</h3>
+        <div className="w-full max-h-[150px] text-right overflow-y-scroll">
           <p>
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
@@ -24,7 +19,7 @@ function Footer() {
           </p>
         </div>
       </div>
-      <div className={styles.menu}>
+      <div className="w-1/5">
         <ul>
           <li>تعرفه</li>
           <li>دسترسی سریع</li>

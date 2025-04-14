@@ -1,14 +1,10 @@
 "use client";
-import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-
-//icons
-import { VscSignIn, VscSignOut, VscSymbolProperty } from "react-icons/vsc";
-import { IoDocumentsOutline } from "react-icons/io5";
 import { GiArchiveRegister } from "react-icons/gi";
-
-//styles
+import { IoDocumentsOutline } from "react-icons/io5";
+import { VscSignIn, VscSignOut, VscSymbolProperty } from "react-icons/vsc";
 import styles from "./Header.module.css";
 
 function Header() {
@@ -20,10 +16,11 @@ function Header() {
     signOut({ redirect: false });
     router.replace("/");
   };
+
   return (
-    <header className={styles.header}>
-      <div className={styles.buttons}>
-        <ul>
+    <header className="bg-first w-full h-14 flex items-center justify-between text-third rounded-xl p-4">
+      <div className='flex'>
+        <ul className="flex items-center">
           <li>
             <Link href="/">صفحه اصلی</Link>
           </li>
@@ -35,7 +32,7 @@ function Header() {
           </li>
         </ul>
       </div>
-      <div className={styles.buttons}>
+      <div className='flex'>
         {status === "loading" && <p>لطفا منتظر بمانید...</p>}
         {status === "authenticated" && (
           <>

@@ -1,17 +1,13 @@
-"use client";
-
-//components
-import Header from "./landing/Header";
 import Footer from "./landing/Footer";
-
-//styles
-import styles from "./Layout.module.css";
+import Header from "./landing/Header";
 
 function Layout({ children }) {
   return (
-    <div className={styles.container}>
+    <div className="w-[95dvw] sm:w-[90dvw] mx-auto py-2">
       <Header />
-      <div className={styles.body}> {children}</div>
+      <div className="flex flex-col items-center w-full  min-h-[500px]">
+        {children}
+      </div>
       <Footer />
     </div>
   );

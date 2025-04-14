@@ -17,4 +17,4 @@ const checkFill = (form) => {
   }
   return true;
 };
-export { e2p, p2e, sp, checkFill };
+export { checkFill, e2p, p2e, sp };

@@ -1,16 +1,3 @@
-.header {
-  width: 100%;
-  height: 50px;
-  background-color: var(--color-first);
-  color: var(--color-third);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5px;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 50px;
-}
 .header ul {
   display: flex;
   list-style: none;
@@ -18,24 +5,7 @@
 .header li {
   margin-left: 20px;
 }
-.buttons {
-  display: flex;
-}
-.buttons ul {
-  display: flex;
-  align-items: center;
-}
-.buttons p {
-  animation: vibrate .5s ease infinite alternate;
-}
-@keyframes vibrate {
-  from {
-    transform: scale(.8) translateX(0px);
-  }
-  to {
-    transform: scale(1.1) translateX(10px);
-  }
-}
+
 .button {
   display: flex;
   align-items: center;
