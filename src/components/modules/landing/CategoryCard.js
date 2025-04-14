@@ -1,13 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
-
-//styles
-import styles from "./CategoryCard.module.css";
+import Link from "next/link";
 
 function CategoryCard({ name, title }) {
   return (
     <Link
-      className={styles.container}
+      className="w-full rounded-xl shadow-xl flex flex-col items-center justify-center p-2 hover:bg-second transition-all"
       href={{ pathname: "residentials", query: { category: name } }}
     >
       <Image
@@ -16,8 +13,9 @@ function CategoryCard({ name, title }) {
         width={240}
         height={144}
         priority={true}
+        className="w-full rounded-xl"
       />
-      <p>{title}</p>
+      <p className="text-first  pt-2">{title}</p>
     </Link>
   );
 }

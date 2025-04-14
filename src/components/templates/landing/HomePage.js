@@ -1,14 +1,15 @@
+"use client";
 import { categories } from "@/constants/categories";
 import { cities } from "@/constants/cities";
 import { services } from "@/constants/services";
 import { Button } from "antd";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import CategoryCard from "../../modules/landing/CategoryCard";
-import styles from "./HomePage.module.css";
 
 function HomePage() {
+  const router = useRouter();
   return (
-    <div className={styles.container}>
+    <div className="w-full">
       <div className="flex gap-5 w-full justify-center items-center flex-col">
         <h1 className="text-5xl font-bold text-center text-first">
           سامانه خرید و فروش ملک
@@ -23,7 +24,7 @@ function HomePage() {
           ))}
         </ul>
       </div>
-      <div className={styles.category}>
+      <div className="w-full flex flex-col sm:flex-row gap-8 my-16">
         {categories.map(
           (item, index) =>
             index > 0 && (
@@ -31,13 +32,19 @@ function HomePage() {
             )
         )}
       </div>
-      <h2>شهر های پربازدید</h2>
+      <h2 className="text-5xl font-bold text-center text-first">
+        شهر های پربازدید
+      </h2>
 
-      <div className={styles.cities}>
+      <div className="flex justify-between gap-3 mt-8 flex-wrap">
         {cities.map((i, index) => (
-          <Link key={index} href={`/residentials?city=${i.value}`}>
+          <Button
+            key={index}
+            onClick={() => router.push(`/residentials?city=${i.value}`)}
+            className="w-[calc(20%-12px)]"
+          >
             {i.label}
-          </Link>
+          </Button>
         ))}
       </div>
     </div>
