@@ -1,0 +1,34 @@
+.container {
+  width: 24%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: var(--color-second);
+  border: 2px solid var(--color-first);
+  transition: 0.5s all ease;
+}
+.container img {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid var(--color-first);
+}
+.container p {
+  text-align: center;
+  color: var(--color-first);
+  font-weight: 300;
+}
+.container:hover {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 48%;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100%;
+  }
+}
