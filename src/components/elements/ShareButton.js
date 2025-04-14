@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
 
 //styles
 import styles from "./ShareButton.module.css";
@@ -19,14 +18,12 @@ function ShareButton() {
   }, []);
 
   return (
-    <CopyToClipboard text={url}>
-      <div
-        className={styles.container}
-        onClick={() => Toast("لینک آگهی کپی شد", "success")}
-      >
-        <LuShare2 /> <p> اشتراک گذاری</p>
-      </div>
-    </CopyToClipboard>
+    <div
+      className={styles.container}
+      onClick={() => Toast("لینک آگهی کپی شد", "success")}
+    >
+      <LuShare2 /> <p> اشتراک گذاری</p>
+    </div>
   );
 }
 
