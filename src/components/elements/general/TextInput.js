@@ -1,8 +1,5 @@
-//functions
 import { p2e } from "@/utils/functions";
-
-//styles
-import styles from "./TextInput.module.css";
+import { Input } from "antd";
 
 function TextInput({ label, name, form, setForm, textArea = false }) {
   const changeHandler = (e) => {
@@ -10,8 +7,7 @@ function TextInput({ label, name, form, setForm, textArea = false }) {
     setForm({ ...form, [name]: p2e(value) });
   };
   return (
-    <div className={styles.input}>
-      <label>{label}:</label>
+    <div className="w-full">
       {textArea ? (
         <textarea
           name={name}
@@ -20,11 +16,13 @@ function TextInput({ label, name, form, setForm, textArea = false }) {
           type="text"
         />
       ) : (
-        <input
-          name={name}
+        <Input
+          addonBefore={label}
           value={form[name]}
           onChange={changeHandler}
           type={name.includes("password") ? "password" : "text"}
+          style={{ direction: "ltr" }}
+          className="w-full"
         />
       )}
     </div>

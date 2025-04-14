@@ -1,20 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import TextInput from "@/components/elements/general/TextInput";
+import { checkFill } from "@/utils/functions";
 import axios from "axios";
-import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-//elements
+import { useState } from "react";
 import Toast from "../../elements/Toast";
 import Loading from "../../elements/general/Loading";
-import TextInput from "@/components/elements/general/TextInput";
-
-//functions
-import { checkFill } from "@/utils/functions";
-
-//styles
-import styles from "./AuthPage.module.css";
 
 function LoginPage() {
   const router = useRouter();
@@ -48,7 +41,7 @@ function LoginPage() {
   };
 
   return (
-    <form className={styles.form} onSubmit={submitHandler}>
+    <form onSubmit={submitHandler}>
       <h3>فرم ثبت نام</h3>
       <TextInput form={form} setForm={setForm} name="email" label="ایمیل" />
       <TextInput

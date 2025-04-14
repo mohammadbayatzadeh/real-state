@@ -1,20 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-
-//functions
-import { signIn } from "next-auth/react";
+import TextInput from "@/components/elements/general/TextInput";
 import { checkFill } from "@/utils/functions";
-
-//elements
+import { Button } from "antd";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Toast from "../../elements/Toast";
 import Loading from "../../elements/general/Loading";
-import TextInput from "@/components/elements/general/TextInput";
-
-//styles
-import styles from "./AuthPage.module.css";
 
 function LoginPage() {
   const [loading, setLoading] = useState(false);
@@ -45,7 +39,10 @@ function LoginPage() {
   };
 
   return (
-    <form className={styles.form} onSubmit={submitHandler}>
+    <form
+      className="flex flex-col gap-2 items-center shadow-xl rounded-xl p-5 border border-first"
+      onSubmit={submitHandler}
+    >
       <h3>فرم ورود</h3>
       <TextInput form={form} setForm={setForm} name="email" label="ایمیل" />
       <TextInput
@@ -54,7 +51,7 @@ function LoginPage() {
         name="password"
         label="رمز عبور"
       />
-      {loading ? <Loading /> : <button type="submit">ورود</button>}
+      {loading ? <Loading /> : <Button type="primary" className="w-full" onClick={submitHandler}>ورود</Button>}
       <p>
         آیا حساب ندارید؟ <Link href="/auth/register">ثبت نام</Link>
       </p>
