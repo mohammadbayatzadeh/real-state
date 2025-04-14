@@ -56,7 +56,7 @@ function Header() {
           </div>
         )}
         {status === "unauthenticated" && (
-          <>
+          <div className="flex gap-1">
             {pathname !== "/auth/login" && (
               <Link
                 href="/auth/login"
@@ -75,7 +75,7 @@ function Header() {
                 <span>ثبت نام</span>
               </Link>
             )}
-          </>
+          </div>
         )}
       </div>
     </header>
