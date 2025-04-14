@@ -7,7 +7,7 @@ function Card({ data: { _id, category, title, city, price, location } }) {
   return (
     <Link
       href={`/residentials/${_id}`}
-      className="grow p-5 rounded-xl shadow border border-first transition-all hover:shadow-2xl"
+      className="grow flex flex-col items-start justify-between p-5 h-1/2 rounded-xl shadow border border-first transition-all hover:shadow-2xl"
     >
       <div className="flex items-center gap-1 text-white font-[500]  bg-first rounded p-2 ">
         <span className="text-2xl">{icons[category]} </span>

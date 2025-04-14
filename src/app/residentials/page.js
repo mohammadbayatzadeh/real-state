@@ -2,8 +2,9 @@ import ResidentialsPage from "@/components/templates/landing/ResidentialsPage";
 import Profile from "@/models/Profile";
 import connectDB from "@/utils/connectDB";
 
-async function Residentials({ searchParams: { category, city } }) {
+async function Residentials({ searchParams }) {
   await connectDB();
+  const { category, city } = await searchParams;
   const data = await Profile.find({ published: true });
   const FilteredData =
     category && category !== "all"
