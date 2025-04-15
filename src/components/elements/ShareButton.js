@@ -1,17 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-
-//styles
-import styles from "./ShareButton.module.css";
-
-//icons
 import { LuShare2 } from "react-icons/lu";
-
-//elements
-import Toast from "./Toast";
+import useToast from "./Toast";
 
 function ShareButton() {
   const [url, setUrl] = useState("");
+  const { api, contextHolder } = useToast();
 
   useEffect(() => {
     setUrl(window.location.href);
@@ -19,9 +13,10 @@ function ShareButton() {
 
   return (
     <div
-      className={styles.container}
-      onClick={() => Toast("لینک آگهی کپی شد", "success")}
+      className="flex items-center gap-1 p-5 border border-first text-center justify-center w-ull shadow rounded-xl text-first"
+      onClick={() => api.success("لینک آگهی کپی شد")}
     >
+      {contextHolder}
       <LuShare2 /> <p> اشتراک گذاری</p>
     </div>
   );
