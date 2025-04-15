@@ -1,32 +1,41 @@
 "use client";
-import { createContext } from "react";
 import Link from "next/link";
-
-//styles
-import styles from "./DashboardSideBar.module.css";
-
-//icons
+import { createContext } from "react";
 import { VscAccount } from "react-icons/vsc";
-
-//comps
 import LogoutButton from "../../elements/general/LogoutButton";
 
 export const UserContext = createContext();
+
 function DashboardSideBar({ children, session, user, profiles }) {
   const { role } = user;
   const {
     user: { email },
   } = session;
   return (
-    <div className={styles.container}>
-      <aside className={styles.aside}>
-        <VscAccount />
+    <div className="flex gap-3 w-full items-start">
+      <aside className="flex flex-col rounded-xl shadow-xl border border-first gap-2 p-5 w-[250px]">
+        <VscAccount className="size-10 text-first mx-auto" />
         {role === "ADMIN" && "ادمین"}
-        <p className={styles.email}>{email}</p>
-        <span></span>
-        <Link href="/dashboard">حساب کاربری</Link>
-        <Link href="/dashboard/my-profiles"> آگهی های من</Link>
-        <Link href="/dashboard/add-profile">ثبت آگهی</Link>
+        <p className="text-center  font-[400] line-clamp-1">{email}</p>
+        <Link
+          href="/dashboard"
+          className="w-full p-3 !text-white bg-first/90 rounded shadow mb-2 transition-all hover:bg-first hover:shadow-lg"
+        >
+          حساب کاربری
+        </Link>
+        <Link
+          href="/dashboard/my-profiles"
+          className="w-full p-3 !text-white bg-first/90 rounded shadow mb-2 transition-all hover:bg-first hover:shadow-lg"
+        >
+          {" "}
+          آگهی های من
+        </Link>
+        <Link
+          href="/dashboard/add-profile"
+          className="w-full p-3 !text-white bg-first/90 rounded shadow mb-2 transition-all hover:bg-first hover:shadow-lg"
+        >
+          ثبت آگهی
+        </Link>
         {role === "ADMIN" && (
           <>
             <Link href="/dashboard/notpublished">در انتظار تایید</Link>

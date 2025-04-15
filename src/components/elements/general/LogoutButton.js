@@ -11,8 +11,9 @@ function LogoutButton() {
         signOut({ redirect: false });
         router.push("/");
       }}
+      className="w-full p-3 flex items-center gap-2 !text-white bg-first/90 rounded shadow mb-2 transition-all hover:bg-first hover:shadow-lg"
     >
-      <FiLogOut />
+      <FiLogOut className="size-5" />
       خروج
     </button>
   );
