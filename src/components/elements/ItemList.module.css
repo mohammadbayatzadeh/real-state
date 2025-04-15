@@ -1,8 +1,0 @@
-.error {
-  padding: 10px;
-  height: max-content;
-  border-radius: 10px;
-  font-weight: 300;
-  background-color: var(--color-fourth);
-  color: var(--color-light);
-}

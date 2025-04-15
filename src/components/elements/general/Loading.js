@@ -1,9 +1,8 @@
-import React from "react";
 import { ThreeDots } from "react-loader-spinner";
 
 function Loading() {
   return (
-    <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+    <div className="w-full flex justify-center">
       <ThreeDots
         height="55"
         width="80"

@@ -1,6 +1,3 @@
-//styles
-import styles from "./ItemList.module.css";
-
 function ItemList({ data }) {
   return (
     <>
@@ -11,7 +8,7 @@ function ItemList({ data }) {
           ))}
         </ul>
       ) : (
-        <h3 className={styles.error}>هیج موردی یافت نشده است</h3>
+        <h3 className="w-full bg-red-500 text-white font-[500] text-xl rounded-xl shadow-xl p-5">هیج موردی یافت نشده است</h3>
       )}
     </>
   );
